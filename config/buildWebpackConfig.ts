@@ -4,21 +4,24 @@ import buildPlugings from "./buildPlugings";
 import buildLoaders from "./buildLoaders";
 import buildResolvers from "./buildResolvers";
 import {buildOptions} from "./types/config";
+import buildDevServer from "./buildDevServer";
 
-export default function buildWebpackConfig({mode, paths}: buildOptions){
+export default function buildWebpackConfig(options: buildOptions){
 	const config: webpack.Configuration = {
-		mode: mode,
-		entry: paths.entry,
+		mode: options.mode,
+		entry: options.paths.entry,
 		output: {
 			filename: 'index.[contenthash].js',
-			path: paths.output,
+			path: options.paths.output,
 			clean: true
 		},
-		plugins: buildPlugings(paths),
+		plugins: buildPlugings(options.paths),
 		module: {
 			rules: buildLoaders(),
 		},
 		resolve: buildResolvers(),
+		devtool: 'inline-source-map',
+		devServer: buildDevServer(options),
 	}
 
 	return config

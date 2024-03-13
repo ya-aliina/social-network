@@ -1,7 +1,12 @@
 import buildWebpackConfig from "./config/buildWebpackConfig";
-import {buildOptions, buildPaths} from "./config/types/config";
+import {buildMode, buildOptions, buildPaths} from "./config/types/config";
 import path from "path";
 import webpack from "webpack";
+
+const mode: buildMode = 'development';
+const port: number = 3000;
+const isDev: boolean = mode === 'development';
+
 
 const paths:buildPaths = {
 	entry: path.resolve(__dirname, 'src', 'index.ts'),
@@ -10,8 +15,9 @@ const paths:buildPaths = {
 }
 
 const options: buildOptions = {
-	mode: "development",
-	paths: paths
+	mode,
+	paths,
+	port
 }
 
 const config:webpack.Configuration = buildWebpackConfig(options);

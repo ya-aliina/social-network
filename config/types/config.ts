@@ -8,6 +8,7 @@ export interface buildPaths {
 
 export interface buildOptions {
 	mode: buildMode,
-	paths: buildPaths
+	paths: buildPaths,
+	port: number,
 }
 
