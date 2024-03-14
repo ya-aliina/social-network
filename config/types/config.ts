@@ -12,3 +12,8 @@ export interface buildOptions {
 	port: number,
 }
 
+export interface buildEnv {
+	mode: buildMode,
+	port: number
+}
+
