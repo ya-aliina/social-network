@@ -3,11 +3,12 @@ import {buildEnv, buildMode, buildOptions, buildPaths} from "./config/types/conf
 import path from "path";
 import webpack from "webpack";
 
-const mode: buildMode = 'development';
-const port: number = 3000;
-const isDev: boolean = mode === 'development';
-
 export default (env: buildEnv) => {
+
+	const mode: buildMode = env.mode || 'development';
+	const port: number = env.port || 3000;
+	const isDev: boolean = mode === 'development';
+
 	const paths:buildPaths = {
 		entry: path.resolve(__dirname, 'src', 'index.ts'),
 		output: path.resolve(__dirname, 'build'),
@@ -17,7 +18,8 @@ export default (env: buildEnv) => {
 	const options: buildOptions = {
 		mode,
 		paths,
-		port
+		port,
+		isDev
 	}
 
 	const config:webpack.Configuration = buildWebpackConfig(options);
