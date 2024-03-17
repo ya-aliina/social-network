@@ -1,24 +1,25 @@
 import webpack from "webpack";
+import MiniCssExtractPlugin from "mini-css-extract-plugin";
 
 export default function buildLoaders():webpack.RuleSetRule[] {
 
-	const saasLoader = {
+	const cssLoader = {
 		test: /\.s[ac]ss$/i,
 		use: [
-			"style-loader",
+			MiniCssExtractPlugin.loader,
 			"css-loader",
 			"sass-loader",
 		],
 	}
 
-	const tsLoader = {
+	const typescriptLoader = {
 		test: /\.tsx?$/,
 		use: 'ts-loader',
 		exclude: /node_modules/,
 	}
 
 	return [
-		tsLoader,
-		saasLoader
+		typescriptLoader,
+		cssLoader
 	]
 }
