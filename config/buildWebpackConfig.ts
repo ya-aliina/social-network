@@ -7,21 +7,22 @@ import {buildOptions} from "./types/config";
 import buildDevServer from "./buildDevServer";
 
 export default function buildWebpackConfig(options: buildOptions){
+	const {mode, paths, port, isDev} = options
 	const config: webpack.Configuration = {
-		mode: options.mode,
-		entry: options.paths.entry,
+		mode: mode,
+		entry: paths.entry,
 		output: {
 			filename: 'index.[contenthash].js',
-			path: options.paths.output,
+			path: paths.output,
 			clean: true
 		},
-		plugins: buildPlugings(options.paths),
+		plugins: buildPlugings(paths),
 		module: {
-			rules: buildLoaders(),
+			rules: buildLoaders(isDev),
 		},
 		resolve: buildResolvers(),
-		devtool: options.isDev? 'inline-source-map': undefined,
-		devServer: options.isDev? buildDevServer(options): undefined,
+		devtool: isDev? 'inline-source-map': undefined,
+		devServer: isDev? buildDevServer(port): undefined,
 	}
 
 	return config
