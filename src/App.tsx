@@ -1,6 +1,4 @@
 import {BrowserRouter, Routes, Route, Link,} from "react-router-dom";
-import About from "./pages/about/About";
-import Posts from "./pages/posts/Posts";
 import AboutAsync from "./pages/about/About.async";
 import PostsAsync from "./pages/posts/Posts.async";
 import {Suspense} from "react";
