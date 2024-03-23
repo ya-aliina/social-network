@@ -5,10 +5,7 @@ import {Suspense, useState} from "react";
 import './styles/index.scss'
 
 export const App = () => {
-	enum Themes {
-		LIGHT = 'light',
-		DARK = 'dark'
-	}
+
 	const toggleTheme = () => {
 		setTheme(theme === Themes.LIGHT? Themes.DARK: Themes.LIGHT);
 	}
