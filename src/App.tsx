@@ -4,6 +4,8 @@ import MainPageAsync from "./pages/MainPage/MainPage.async";
 import {Suspense, useContext, useState} from "react";
 import './styles/index.scss'
 import {ThemeContext, Themes} from "./theme/ThemeContext";
+import {classNames} from "./helpers/classNames";
+
 
 export const App = () => {
 	const {theme, setTheme} = useContext(ThemeContext)
@@ -12,7 +14,7 @@ export const App = () => {
 	}
 
 	return (
-		<div className={`app ${theme}`} >
+		<div className={classNames('app', {}, [theme])} >
 			<button onClick={toggleTheme}>
 				Change Thema
 			</button>
