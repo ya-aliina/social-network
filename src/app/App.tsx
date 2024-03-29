@@ -1,10 +1,10 @@
 import {Routes, Route, Link,} from "react-router-dom";
-import AboutAsync from "./pages/AboutPage/About.async";
-import MainPageAsync from "./pages/MainPage/MainPage.async";
+import AboutAsync from "../pages/AboutPage/About.async";
+import MainPageAsync from "../pages/MainPage/MainPage.async";
 import {Suspense, useContext, useState} from "react";
 import './styles/index.scss'
-import {ThemeContext, Themes} from "./theme/ThemeContext";
-import {classNames} from "./helpers/classNames";
+import {ThemeContext, Themes} from "../theme/ThemeContext";
+import {classNames} from "../helpers/classNames";
 
 
 export const App = () => {
