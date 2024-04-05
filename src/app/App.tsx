@@ -3,6 +3,7 @@ import './styles/index.scss'
 import {classNames} from "shared/lib/classNames/classNames";
 import {useTheme} from "app/providers/ThemeProvider/lib/useTheme";
 import {AppRouter} from "app/providers/router";
+import {Navbar} from "widgets/Navbar";
 
 
 export const App = () => {
@@ -13,8 +14,7 @@ export const App = () => {
 			<button onClick={toggleTheme}>
 				Change Thema
 			</button>
-			<Link to='/'>Main</Link>
-			<Link to='/about'>About</Link>
+			<Navbar />
 			<AppRouter />
 
 		</div>
