@@ -1,11 +1,12 @@
-import React from 'react';
+import React, {FC} from 'react';
+interface AppLinksProps {
+	className: string
+}
 
-const AppLink = () => {
+export const AppLink: FC<AppLinksProps> = () => {
 	return (
 		<div>
 			
 		</div>
 	);
 };
-
-export default AppLink;
