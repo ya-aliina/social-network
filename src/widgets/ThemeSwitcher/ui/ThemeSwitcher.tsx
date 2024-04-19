@@ -18,10 +18,8 @@ export const ThemeSwitcher = ({className}:ThemeSwitcherProps) => {
 			<Button theme={ButtonTheme.CLEAR} onClick={toggleTheme}>
 				{theme === Themes.LIGHT
 					? <LightIcon viewBox="0 0 38 38" width="30px" height="30px"/>
-					: <DarkIcon />
-
+					: <DarkIcon viewBox="0 0 38 38" width="30px" height="30px"/>
 				}
-
 			</Button>
 		</div>
 	);
