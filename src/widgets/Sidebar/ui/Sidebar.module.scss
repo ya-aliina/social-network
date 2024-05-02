@@ -7,4 +7,5 @@
 
 .collapsed {
   width: var(--sidebar-width-collapsed);
+  transition: width .3s ease;
 }
