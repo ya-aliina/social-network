@@ -1,7 +1,6 @@
 import HtmlWebpackPlugin from "html-webpack-plugin";
-import path from "path";
 import webpack from "webpack";
-import {buildOptions, buildPaths} from "./types/config";
+import {buildOptions} from "./types/config";
 import MiniCssExtractPlugin from "mini-css-extract-plugin";
 
 export default function buildPlugings({paths, isDev}: buildOptions):webpack.WebpackPluginInstance[] {
@@ -15,7 +14,7 @@ export default function buildPlugings({paths, isDev}: buildOptions):webpack.Webp
 			chunkFilename: 'css/[name].[contenthash].css'
 		}),
 		new webpack.DefinePlugin({
-			___IS_DEV__: JSON.stringify(isDev)
+			__IS_DEV__: JSON.stringify(isDev),
 		})
 	]
 }
