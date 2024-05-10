@@ -8,6 +8,7 @@ export default (env: buildEnv) => {
 	const mode: buildMode = env.mode || 'development';
 	const port: number = env.port || 3000;
 	const isDev: boolean = mode === 'development';
+    const isEslintFlat: boolean = env.isEslintFlat === false;
 
 	const paths:buildPaths = {
 		entry: path.resolve(__dirname, 'src', 'index.tsx'),

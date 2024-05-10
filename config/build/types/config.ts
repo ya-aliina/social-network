@@ -16,6 +16,7 @@ export interface buildOptions {
 
 export interface buildEnv {
 	mode: buildMode,
-	port: number
+	port: number,
+    isEslintFlat: boolean,
 }
 

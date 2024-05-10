@@ -4,7 +4,7 @@ import cls from './LangSwitcher.module.scss';
 import {classNames} from "shared/lib/classNames/classNames";
 
 interface LangSwitcherProps {
-	className?: string;
+	className?: string
 }
 
 export const LangSwitcher = ({className}:LangSwitcherProps) => {
