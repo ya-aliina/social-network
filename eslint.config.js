@@ -8,7 +8,11 @@ const compat = new FlatCompat({
 });
 
 const config = [
-    ...compat.extends('airbnb', 'airbnb/hooks'),
+    ...compat.extends(
+        'airbnb',
+        'airbnb/hooks',
+        "plugin:i18next/recommended"
+    ),
     {
         languageOptions: { globals: globals.browser },
         rules: {
@@ -29,6 +33,7 @@ const config = [
             'no-underscore-dangle': 'off',
             'max-len': ['warn', 120],
             '@typescript-eslint/no-unused-vars': ['warn'],
+            "i18next/no-literal-string": 'error'
         },
     },
     pluginJs.configs.recommended,
