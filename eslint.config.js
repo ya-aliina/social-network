@@ -31,9 +31,9 @@ const config = [
             'react/jsx-props-no-spreading': 'warn',
             'no-shadow': 'off',
             'no-underscore-dangle': 'off',
-            'max-len': ['warn', 120],
+            'max-len': ['warn', { code: 120, ignoreComments: true }],
             '@typescript-eslint/no-unused-vars': ['warn'],
-            "i18next/no-literal-string": 'error'
+            'i18next/no-literal-string': 'error',
         },
     },
     pluginJs.configs.recommended,
