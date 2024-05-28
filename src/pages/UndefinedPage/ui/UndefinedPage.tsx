@@ -11,7 +11,7 @@ export const UndefinedPage = ({ className }:UndefinedPageProps) => {
 
     return (
         <div className={classNames(cls.UndefinedPage, {}, [className])}>
-            {t('')}
+            {t('Страница не найдена')}
         </div>
     );
 };
