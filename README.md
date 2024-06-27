@@ -18,6 +18,9 @@ Dieses Projekt ist ein Lernkurs zur Entwicklung eines modernen sozialen Netzwerk
 ### Organisation der Stile und Unterstützung von Themen
 - Strukturierung der Stile und Einführung der Unterstützung für Themen zur einfachen Anpassung des Erscheinungsbilds der Anwendung.
 
+### Organisation des Dateisystems nach der FSD-Methodik
+- Strukturierung des Projekts unter Verwendung der Feature-Sliced Design (FSD) Methodik zur Vereinfachung der Code-Navigation und Verbesserung der Skalierbarkeit des Projekts.
+
 ### Internationalisierung mit i18n und Übersetzungs-Plugins
 - Implementierung von Internationalisierungsmechanismen mit i18n und entsprechenden Übersetzungs-Plugins.
 
