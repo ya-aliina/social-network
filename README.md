@@ -32,3 +32,64 @@ Dieses Projekt ist ein Lernkurs zur Entwicklung eines modernen sozialen Netzwerk
 
 ### Analyse der Größe und Optimierung der Builds mit BundleAnalyzer
 - Verwendung von BundleAnalyzer zur Analyse der Größe und Struktur der Anwendungs-Builds zur Optimierung.
+
+
+## Voraussetzungen
+
+- Node.js
+- npm
+
+## Installation
+
+1. Klonen Sie das Repository:
+
+    ```bash
+    git clone https://github.com/ya-aliina/social-network.git
+    ```
+
+2. Installieren Sie die Abhängigkeiten:
+
+    ```bash
+    npm install
+    ```
+
+## Skripte
+
+- Starten des Entwicklungsservers:
+
+    ```bash
+    npm start
+    ```
+
+- Erstellen einer Entwicklungs-Build:
+
+    ```bash
+    npm run build:dev
+    ```
+
+- Erstellen einer Produktions-Build:
+
+    ```bash
+    npm run build:prod
+    ```
+
+- Linting von TypeScript-Dateien:
+
+    ```bash
+    npm run lint:ts
+    npm run lint:ts:fix
+    ```
+
+- Linting von SCSS-Dateien:
+
+    ```bash
+    npm run lint:scss
+    npm run lint:scss:fix
+    ```
+
+- Ausführen von Tests:
+
+    ```bash
+    npm test
+    ```
+
