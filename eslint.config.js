@@ -2,6 +2,7 @@ const { FlatCompat } = require('@eslint/eslintrc');
 const globals = require('globals');
 const pluginJs = require('@eslint/js');
 const tseslint = require('typescript-eslint');
+const { rules } = require('@eslint/js/src/configs/eslint-all');
 
 const compat = new FlatCompat({
     baseDirectory: __dirname,
@@ -33,8 +34,22 @@ const config = [
             'no-underscore-dangle': 'off',
             'max-len': ['warn', { code: 120, ignoreComments: true }],
             '@typescript-eslint/no-unused-vars': ['warn'],
-            'i18next/no-literal-string': 'error',
+            'i18next/no-literal-string': [
+                'error', 
+                {
+                    markupOnly: true,
+                    ignoreAttribute: ['data-testid', 'to']
+                }
+            ],
         },
+        overrides: [
+            {
+                files: ['**/src/**/*.test.{ts, tsx}'],
+                rules: {
+                    'i18next/no-literal-string': 'off'
+                }
+            }
+        ]
     },
     pluginJs.configs.recommended,
     ...tseslint.configs.recommended,
