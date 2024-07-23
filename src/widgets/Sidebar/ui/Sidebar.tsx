@@ -18,13 +18,13 @@ export function Sidebar({ className }:SidebarProps) {
     };
 
     return (
-        <div 
+        <div
             data-testid="sidebar"
             className={classNames(cls.Sidebar, { [cls.collapsed]: collapsed }, [className])}
         >
-            <button 
+            <button
                 data-testid="sidebar-toggle"
-                type="button" 
+                type="button"
                 onClick={onToggle}
             >
                 {t('Toggle')}
