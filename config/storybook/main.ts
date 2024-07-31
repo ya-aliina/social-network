@@ -19,9 +19,9 @@ const config: StorybookConfig = {
             transform: {
                 react: {
                     runtime: 'automatic',
-                }
-            }
-        }
+                },
+            },
+        },
     }),
 };
 export default config;
