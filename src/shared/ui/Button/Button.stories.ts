@@ -1,3 +1,4 @@
+import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 import { fn } from '@storybook/test';
 
@@ -11,10 +12,10 @@ const meta: Meta<typeof Button> = {
         layout: 'centered',
     },
     tags: ['autodocs'],
-    argTypes: {
-        backgroundColor: { control: 'color' },
-    },
-    args: { onClick: fn() },
+    // argTypes: {
+    //     backgroundColor: { control: 'color' },
+    // },
+    // args: { onClick: fn() },
 };
 
 export default meta;
