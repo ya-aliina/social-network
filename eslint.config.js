@@ -11,7 +11,7 @@ const config = [
     ...compat.extends(
         'airbnb',
         'airbnb/hooks',
-        "plugin:i18next/recommended"
+        'plugin:i18next/recommended',
     ),
     {
         languageOptions: { globals: globals.browser },
@@ -34,6 +34,12 @@ const config = [
             'max-len': ['warn', { code: 120, ignoreComments: true }],
             '@typescript-eslint/no-unused-vars': ['warn'],
             'i18next/no-literal-string': 'error',
+        },
+    },
+    {
+        files: ['**/src/**/*.test.{ts, tsx}', '**/src/**/*.{svg, svgr}'],
+        rules: {
+            'i18next/no-literal-string': 'off',
         },
     },
     pluginJs.configs.recommended,
