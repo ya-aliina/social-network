@@ -3,8 +3,8 @@ import { ButtonHTMLAttributes, FC } from 'react';
 import cls from './Button.module.scss';
 
 export enum ButtonTheme {
-    'CLEAR' = 'clear',
-    'OUTLINE' = 'outline',
+    CLEAR = 'clear',
+    OUTLINE = 'outline',
 }
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement>{
     className?: string;
@@ -15,14 +15,14 @@ export const Button: FC<ButtonProps> = (props) => {
     const {
         children,
         className,
-        theme = ButtonTheme.BORDERED,
+        theme = ButtonTheme.OUTLINE,
         ...otherProps
     } = props;
+
     return (
         <button
             type="button"
-            className={classNames(cls.Button, {}, [className, cls[theme]])}
-            /* eslint-disable-next-line react/jsx-props-no-spreading */
+            className={classNames(cls.Button, { [cls[theme]]: true }, [className])}
             {...otherProps}
         >
             {children}

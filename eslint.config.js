@@ -49,6 +49,12 @@ const config = [
             'i18next/no-literal-string': 'off',
         },
     },
+    {
+        files: ['**/src/**/*.test.{ts, tsx}', '**/src/**/*.{svg, svgr}'],
+        rules: {
+            'i18next/no-literal-string': 'off',
+        },
+    },
     pluginJs.configs.recommended,
     ...tseslint.configs.recommended,
 ];

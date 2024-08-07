@@ -1,8 +1,7 @@
 import webpack from 'webpack';
-import { buildCssLoaders } from './loaders/buildCssLoaders';
-import { buildOptions } from './types/config';
+import { buildCssLoader } from './loaders/buildCssLoader';
 
-export default function buildLoaders({ isDev }:buildOptions): webpack.RuleSetRule[] {
+export default function buildLoaders(isDev: boolean):webpack.RuleSetRule[] {
     const svgLoader = {
         test: /\.svg$/i,
         issuer: /\.[jt]sx?$/,
@@ -18,7 +17,7 @@ export default function buildLoaders({ isDev }:buildOptions): webpack.RuleSetRul
         ],
     };
 
-    const cssLoader = buildCssLoaders(isDev);
+    const cssLoader = buildCssLoader(isDev);
 
     const typescriptLoader = {
         test: /\.tsx?$/,
@@ -34,13 +33,11 @@ export default function buildLoaders({ isDev }:buildOptions): webpack.RuleSetRul
             options: {
                 presets: ['@babel/preset-env'],
                 plugins: [
-                    [
-                        'i18next-extract',
+                    ['i18next-extract',
                         {
                             locales: ['ru', 'en'],
                             keyAsDefaultValue: true,
-                        },
-                    ],
+                        }],
                 ],
             },
         },
