@@ -1,9 +1,14 @@
 .Button {
   cursor: pointer;
+  padding: 10px 15px;
+  font-size: var(--font-size-l);
 }
 
 .clear {
   border: none;
   background: transparent;
+}
 
+.accent {
+  background: var(--primary-color);
 }
