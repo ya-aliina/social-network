@@ -1,47 +1,47 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { fn } from '@storybook/test';
-
-import { Button, ButtonTheme } from './Button';
+import { AppLink, AppLinkTheme } from './AppLink';
 import {ThemeDecorator} from "shared/config/storybook/ThemeDecorator";
 import {Theme} from "app/providers/ThemeProvider";
 
-const meta: Meta<typeof Button> = {
-    title: 'shared/Button',
-    component: Button,
+const meta: Meta<typeof AppLink> = {
+    title: 'shared/AppLink',
+    component: AppLink,
     tags: ['autodocs'],
     argTypes: {},
-    args: { onClick: fn() },
-};
-
-export default meta;
-type Story = StoryObj<typeof Button>;
-
-export const ClearLight: Story = {
     args: {
-        children: 'text',
-        theme: ButtonTheme.CLEAR,
+        to: '/',
     },
 };
 
-export const ClearDark: Story = {
+export default meta;
+type Story = StoryObj<typeof AppLink>;
+
+export const PrimaryLight: Story = {
     args: {
         children: 'text',
-        theme: ButtonTheme.CLEAR,
+        theme: AppLinkTheme.PRIMARY,
+    },
+};
+
+export const PrimaryDark: Story = {
+    args: {
+        children: 'text',
+        theme: AppLinkTheme.PRIMARY,
     },
     decorators: [ThemeDecorator(Theme.DARK)],
 };
 
-export const AccentLight: Story = {
+export const InvertedLight: Story = {
     args: {
         children: 'text',
-        theme: ButtonTheme.ACCENT,
+        theme: AppLinkTheme.INVERTED,
     },
 };
 
-export const AccentDark: Story = {
+export const InvertedDark: Story = {
     args: {
         children: 'text',
-        theme: ButtonTheme.ACCENT,
+        theme: AppLinkTheme.INVERTED,
     },
     decorators: [ThemeDecorator(Theme.DARK)],
 };
