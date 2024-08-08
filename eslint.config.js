@@ -17,6 +17,7 @@ const config = [
     {
         languageOptions: { globals: globals.browser },
         rules: {
+            'linebreak-style': 'off',
             'react/jsx-indent': ['warn', 4],
             'react/jsx-indent-props': ['warn', 4],
             'import/extensions': 'off',
@@ -45,12 +46,6 @@ const config = [
     },
     {
         files: ['**/src/**/*.test.{ts, tsx}'],
-        rules: {
-            'i18next/no-literal-string': 'off',
-        },
-    },
-    {
-        files: ['**/src/**/*.test.{ts, tsx}', '**/src/**/*.{svg, svgr}'],
         rules: {
             'i18next/no-literal-string': 'off',
         },

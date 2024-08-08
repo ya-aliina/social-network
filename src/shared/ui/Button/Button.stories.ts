@@ -34,14 +34,14 @@ export const ClearDark: Story = {
 export const AccentLight: Story = {
     args: {
         children: 'text',
-        theme: ButtonTheme.ACCENT,
+        theme: ButtonTheme.OUTLINE,
     },
 };
 
 export const AccentDark: Story = {
     args: {
         children: 'text',
-        theme: ButtonTheme.ACCENT,
+        theme: ButtonTheme.OUTLINE,
     },
     decorators: [ThemeDecorator(Theme.DARK)],
 };
