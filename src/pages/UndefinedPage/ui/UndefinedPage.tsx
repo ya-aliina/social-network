@@ -6,7 +6,7 @@ interface UndefinedPageProps {
     className?: string;
 }
 
-export const UndefinedPage = ({ className }:UndefinedPageProps) => {
+const UndefinedPage = ({ className }:UndefinedPageProps) => {
     const { t } = useTranslation();
 
     return (
@@ -15,3 +15,5 @@ export const UndefinedPage = ({ className }:UndefinedPageProps) => {
         </div>
     );
 };
+
+export default UndefinedPage;

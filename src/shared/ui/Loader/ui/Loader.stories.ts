@@ -2,22 +2,23 @@ import type { Meta, StoryObj } from '@storybook/react';
 
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator';
 import { Theme } from 'app/providers/ThemeProvider';
-import { PageError } from './PageError';
+import { Loader } from './Loader';
 
-const meta: Meta<typeof PageError> = {
-    title: 'widget/PageError',
-    component: PageError,
+const meta: Meta<typeof Loader> = {
+    title: 'shared/Loader',
+    component: Loader,
     tags: ['autodocs'],
+    argTypes: {},
 };
 
 export default meta;
-type Story = StoryObj<typeof PageError>;
+type Story = StoryObj<typeof Loader>;
 
-export const PageErrorLight: Story = {
+export const LoaderLight: Story = {
     args: {},
 };
 
-export const PageErrorDark: Story = {
+export const LoaderDark: Story = {
     args: {},
     decorators: [ThemeDecorator(Theme.DARK)],
 };
