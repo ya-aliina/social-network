@@ -14,8 +14,9 @@
     "test:unit": "jest --config ./config/jest/jest.config.ts",
     "test:ui": "npx loki test",
     "test:ui:ok": "npx loki approve",
+    "test:ui:ci": "npx loki --requireReference --reactUri file:./storybook-static",
     "storybook": "storybook dev -p 6006 -c config/storybook",
-    "build-storybook": "storybook build -c config/storybook"
+    "storybook:build": "storybook build -c config/storybook"
   },
   "keywords": [],
   "author": "",
@@ -47,6 +48,7 @@
     "@types/react-dom": "^17.0.11",
     "@types/react-router-dom": "^5.3.3",
     "@types/webpack": "^5.28.0",
+    "@types/webpack-bundle-analyzer": "^4.7.0",
     "@types/webpack-dev-server": "^4.7.2",
     "babel-loader": "^8.2.3",
     "babel-plugin-i18next-extract": "^0.8.3",
@@ -78,6 +80,7 @@
     "typescript": "^5.5.4",
     "typescript-eslint": "^7.8.0",
     "webpack": "^5.69.1",
+    "webpack-bundle-analyzer": "^4.10.2",
     "webpack-cli": "^4.10.0",
     "webpack-dev-server": "^4.7.4"
   },

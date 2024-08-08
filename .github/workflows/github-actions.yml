@@ -1,0 +1,41 @@
+name: Linting, testing, building
+run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+jobs:
+  Build-and-Test:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [18.x]
+
+    steps:
+      - uses: actions/checkout@v4
+      - name: Starting Node Js ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: Install Modules
+        run: npm install
+      - name: Build Production
+        run: npm run build:prod
+      - name: Linting Typescript
+        run: npm run lint:ts
+      - name: Linting SCSS
+        run: npm run lint:scss
+      - name: Unit Testing
+        run: npm run test:unit
+      - name: Build Storybook
+        run: npm run storybook:build
+      - name: Screenshot testing
+        run: npm run test:ui:ci
+
+
+
+
