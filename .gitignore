@@ -1,6 +1,5 @@
 .git
 .idea
-.loki
 build
 node_modules
 storybook-static
