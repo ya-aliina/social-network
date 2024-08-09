@@ -4,7 +4,6 @@ import { buildCssLoader } from './loaders/buildCssLoader';
 export default function buildLoaders(isDev: boolean):webpack.RuleSetRule[] {
     const svgLoader = {
         test: /\.svg$/i,
-        issuer: /\.[jt]sx?$/,
         use: ['@svgr/webpack'],
     };
 
