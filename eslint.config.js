@@ -35,6 +35,7 @@ const config = [
             'no-underscore-dangle': 'off',
             'max-len': ['warn', { code: 120, ignoreComments: true }],
             '@typescript-eslint/no-unused-vars': ['warn'],
+            'jsx-a11y/click-events-have-key-events': 'off',
             'i18next/no-literal-string': [
                 'error',
                 {
