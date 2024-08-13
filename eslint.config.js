@@ -3,6 +3,7 @@ const globals = require('globals');
 const pluginJs = require('@eslint/js');
 const tseslint = require('typescript-eslint');
 const { rules } = require('@eslint/js/src/configs/eslint-all');
+const reactHooks = require('eslint-plugin-react-hooks');
 
 const compat = new FlatCompat({
     baseDirectory: __dirname,
@@ -16,6 +17,9 @@ const config = [
     ),
     {
         languageOptions: { globals: globals.browser },
+        plugins: {
+            'react-hooks': reactHooks,
+        },
         rules: {
             'linebreak-style': 'off',
             'react/jsx-indent': ['warn', 4],
@@ -34,8 +38,9 @@ const config = [
             'no-shadow': 'off',
             'no-underscore-dangle': 'off',
             'max-len': ['warn', { code: 120, ignoreComments: true }],
-            '@typescript-eslint/no-unused-vars': ['warn'],
+            '@typescript-eslint/no-unused-vars': 'warn',
             'jsx-a11y/click-events-have-key-events': 'off',
+            'jsx-a11y/no-static-element-interactions': 'off',
             'i18next/no-literal-string': [
                 'error',
                 {
@@ -43,6 +48,8 @@ const config = [
                     ignoreAttribute: ['data-testid', 'to'],
                 },
             ],
+            'react-hooks/rules-of-hooks': 'error', // Checks rules of Hooks
+            'react-hooks/exhaustive-deps': 'error', // Checks effect dependencies
         },
     },
     {

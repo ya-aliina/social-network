@@ -1,7 +1,8 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import React, {
-    ReactNode, useEffect, useRef, useState,
+    ReactNode, useCallback, useEffect, useRef, useState,
 } from 'react';
+import { Portal } from 'shared/ui/Portal/Portal';
 import cls from './Modal.module.scss';
 
 interface ModalProps {
@@ -24,7 +25,7 @@ export const Modal = (props:ModalProps) => {
     const [isClosing, setIsClosing] = useState(false);
     const timerRef = useRef<ReturnType<typeof setTimeout>>();
 
-    const onCloseHandler = () => {
+    const onCloseHandler = useCallback(() => {
         if (onClose) {
             setIsClosing(true);
             timerRef.current = setTimeout(() => {
@@ -32,13 +33,13 @@ export const Modal = (props:ModalProps) => {
                 setIsClosing(false);
             }, ANIMATION_DELAY);
         }
-    };
+    }, [onClose]);
 
-    const onKeyDown = (e: KeyboardEvent) => {
+    const onKeyDown = useCallback((e: KeyboardEvent) => {
         if (e.key === 'Escape') {
             onCloseHandler();
         }
-    };
+    }, [onCloseHandler]);
 
     const onContentClick = (e: React.MouseEvent) => {
         e.stopPropagation();
@@ -56,19 +57,22 @@ export const Modal = (props:ModalProps) => {
 
         return () => {
             clearTimeout(timerRef.current);
+            window.removeEventListener('keydown', onKeyDown);
         };
-    }, [isOpen]);
+    }, [isOpen, onKeyDown]);
 
     return (
-        <div className={classNames(cls.Modal, mods, [className])}>
-            <div className={cls.overlay} onClick={onCloseHandler}>
-                <div
-                    className={cls.content}
-                    onClick={onContentClick}
-                >
-                    {children}
+        <Portal>
+            <div className={classNames(cls.Modal, mods, [className])}>
+                <div className={cls.overlay} onClick={onCloseHandler}>
+                    <div
+                        className={cls.content}
+                        onClick={onContentClick}
+                    >
+                        {children}
+                    </div>
                 </div>
             </div>
-        </div>
+        </Portal>
     );
 };

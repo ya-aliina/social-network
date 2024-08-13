@@ -1,4 +1,3 @@
-import './styles/index.scss';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useTheme } from 'app/providers/ThemeProvider/lib/useTheme';
 import { AppRouter } from 'app/providers/router';
@@ -7,7 +6,7 @@ import { Sidebar } from 'widgets/Sidebar';
 import { Suspense, useState } from 'react';
 import { Modal } from 'shared/ui/Modal/Modal';
 
-export const App = () => {
+export function App() {
     const { theme } = useTheme();
 
     const [isOpen, setIsOpen] = useState(false);
@@ -16,11 +15,15 @@ export const App = () => {
         <div className={classNames('app', {}, [theme])}>
             <Suspense fallback="">
                 <Navbar />
+                {/* eslint-disable-next-line i18next/no-literal-string */}
                 <button type="button" onClick={() => setIsOpen(true)}>
                     toggle
                 </button>
+                {/* eslint-disable-next-line i18next/no-literal-string */}
                 <Modal isOpen={isOpen} onClose={() => setIsOpen(false)}>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque aut consectetur debitis dicta eligendi error esse eveniet excepturi, ipsum maiores odit officiis, porro, provident quasi quo ratione repellendus vel vero?
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque aut consectetur debitis dicta
+                    eligendi error esse eveniet excepturi, ipsum maiores odit officiis, porro, provident quasi quo
+                    ratione repellendus vel vero?
                 </Modal>
                 <div className="page-content">
                     <Sidebar />
@@ -29,4 +32,4 @@ export const App = () => {
             </Suspense>
         </div>
     );
-};
+}
