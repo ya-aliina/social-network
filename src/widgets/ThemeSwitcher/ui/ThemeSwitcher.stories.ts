@@ -7,7 +7,6 @@ import { ThemeSwitcher } from './ThemeSwitcher';
 const meta: Meta<typeof ThemeSwitcher> = {
     title: 'widget/ThemeSwitcher',
     component: ThemeSwitcher,
-    tags: ['autodocs'],
     argTypes: {},
 };
 

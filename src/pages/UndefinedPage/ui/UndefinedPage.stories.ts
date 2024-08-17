@@ -7,7 +7,6 @@ import UndefinedPage from './UndefinedPage';
 const meta: Meta<typeof UndefinedPage> = {
     title: 'pages/UndefinedPage',
     component: UndefinedPage,
-    tags: ['autodocs'],
     argTypes: {},
 };
 

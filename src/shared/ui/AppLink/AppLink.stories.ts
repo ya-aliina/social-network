@@ -6,7 +6,6 @@ import { AppLink, AppLinkTheme } from './AppLink';
 const meta: Meta<typeof AppLink> = {
     title: 'shared/AppLink',
     component: AppLink,
-    tags: ['autodocs'],
     argTypes: {},
     args: {
         to: '/',

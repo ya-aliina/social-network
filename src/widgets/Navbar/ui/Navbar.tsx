@@ -19,7 +19,7 @@ export function Navbar({ className }:NavbarProps) {
     return (
         <div className={classNames(cls.Navbar, {}, [className])}>
             <Button
-                theme={ButtonTheme.OUTLINE}
+                theme={ButtonTheme.CLEAR_INVERTED}
                 className={cls.links}
                 onClick={onToggleModal}
             >

@@ -8,7 +8,6 @@ import { Button, ButtonSize, ButtonTheme } from './Button';
 const meta: Meta<typeof Button> = {
     title: 'shared/Button',
     component: Button,
-    tags: ['autodocs'],
     argTypes: {},
     args: { onClick: fn() },
 };
@@ -27,6 +26,21 @@ export const ClearDark: Story = {
     args: {
         children: 'text',
         theme: ButtonTheme.CLEAR,
+    },
+    decorators: [ThemeDecorator(Theme.DARK)],
+};
+
+export const ClearInvertedLight: Story = {
+    args: {
+        children: 'text',
+        theme: ButtonTheme.CLEAR_INVERTED,
+    },
+};
+
+export const ClearInvertedDark: Story = {
+    args: {
+        children: 'text',
+        theme: ButtonTheme.CLEAR_INVERTED,
     },
     decorators: [ThemeDecorator(Theme.DARK)],
 };
