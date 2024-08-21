@@ -16,10 +16,6 @@ export function App() {
             <Suspense fallback="">
                 <Navbar />
                 {/* eslint-disable-next-line i18next/no-literal-string */}
-                <button type="button" onClick={() => setIsOpen(true)}>
-                    toggle
-                </button>
-                {/* eslint-disable-next-line i18next/no-literal-string */}
                 <Modal isOpen={isOpen} onClose={() => setIsOpen(false)}>
                     Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque aut consectetur debitis dicta
                     eligendi error esse eveniet excepturi, ipsum maiores odit officiis, porro, provident quasi quo
