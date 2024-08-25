@@ -13,7 +13,7 @@
     "lint:scss": "npx stylelint \"**/*.scss\"",
     "lint:scss:fix": "npx stylelint \"**/*.scss\" --fix",
     "test:unit": "jest --config ./config/jest/jest.config.ts",
-    "test:ui": "npx loki test",
+    "test:ui": "npx loki test --chromeRetries=3 --chromeConcurrency=1",
     "test:ui:ok": "npx loki approve",
     "test:ui:updateRef": "npx loki update --reactUri=\"file:./storybook-static\"",
     "test:ui:ci": "npx loki --requireReference --reactUri file:./storybook-static",
