@@ -1,5 +1,5 @@
-import { createReduxStore } from './config/store';
-import { StateSchema } from './config/StateSchema';
+import { createReduxStore } from 'shared/config/storeConfig/store';
+import { StateSchema } from 'shared/config/storeConfig/StateSchema';
 import { StoreProvider } from './ui/StoreProvider';
 
 export {

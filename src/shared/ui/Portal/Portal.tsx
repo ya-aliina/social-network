@@ -1,4 +1,4 @@
-import { ReactNode, ReactPortal } from 'react';
+import { ReactNode } from 'react';
 import { createPortal } from 'react-dom';
 import 'app/styles/index.scss';
 
@@ -7,7 +7,7 @@ interface PortalProps {
     container?: HTMLElement;
 }
 
-export const Portal = (props:PortalProps): ReactPortal | null => {
+export const Portal = (props:PortalProps) => {
     const {
         children,
         container = document.body,
