@@ -21,6 +21,8 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node-version }}
+      - name: Clear NPM Cache
+        run: npm cache clean --force
       - name: Install Modules
         run: npm install
       - name: Build Production
