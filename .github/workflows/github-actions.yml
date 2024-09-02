@@ -21,10 +21,6 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node-version }}
-      - name: Clear NPM Cache
-        run: npm cache clean --force
-      - name: Install Modules
-        run: npm install
       - name: Build Production
         run: npm run build:prod
         if: always()
@@ -36,8 +32,8 @@ jobs:
       - name: Unit Testing
         if: always()
         run: npm run test:unit
-      - name: Build Storybook
-        run: npm run storybook:build
+      - name: run Storybook
+        run: npm run storybook
         if: always()
       - name: Screenshot testing
         run: npm run test:ui:ci
