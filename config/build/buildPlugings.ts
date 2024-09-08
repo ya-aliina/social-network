@@ -19,7 +19,6 @@ export default function buildPlugings({ paths, isDev }: buildOptions):webpack.We
             __IS_DEV__: JSON.stringify(isDev),
         }),
         new ReactRefreshWebpackPlugin(),
-
     ];
 
     if (isDev) {
