@@ -2,7 +2,7 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 import { Input } from 'shared/ui/Input/Input';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch, useSelector, useStore } from 'react-redux';
 import { memo, useCallback } from 'react';
 import { Text, TextTheme } from 'shared/ui/Text/Text';
 import { loginByUsername } from '../../model/services/loginByUsername/loginByUsername';
@@ -17,6 +17,8 @@ export interface LoginFormProps {
 const LoginForm = memo(({ className }:LoginFormProps) => {
     const { t } = useTranslation();
     const dispatch = useDispatch();
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    const store = useStore();
     const {
         username,
         password,
