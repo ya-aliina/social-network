@@ -15,8 +15,8 @@ export function Navbar({ className }:NavbarProps) {
     const { t } = useTranslation();
     const dispatch = useDispatch();
 
-    const authData = useSelector(getUserAuthData);
     const [isAuthModal, setIsAuthModal] = useState(false);
+    const authData = useSelector(getUserAuthData);
 
     const onCloseModal = useCallback(() => {
         setIsAuthModal(false);
@@ -40,8 +40,6 @@ export function Navbar({ className }:NavbarProps) {
                 >
                     {t('Выйти')}
                 </Button>
-                {/* eslint-disable-next-line i18next/no-literal-string */}
-                <LoginModal isOpen={isAuthModal} onClose={onCloseModal} />
             </div>
         );
     }

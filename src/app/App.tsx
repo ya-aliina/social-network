@@ -14,7 +14,7 @@ export function App() {
     const [isOpen, setIsOpen] = useState(false);
 
     useEffect(() => {
-        dispatch(userActions.initAuthData);
+        dispatch(userActions.initAuthData());
     }, [dispatch]);
 
     return (

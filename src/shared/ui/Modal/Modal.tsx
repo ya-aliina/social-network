@@ -16,7 +16,7 @@ interface ModalProps {
 
 const ANIMATION_DELAY = 300;
 
-export const Modal = (props:ModalProps) => {
+export const Modal = (props: ModalProps) => {
     const {
         className,
         children,
@@ -26,8 +26,15 @@ export const Modal = (props:ModalProps) => {
     } = props;
 
     const [isClosing, setIsClosing] = useState(false);
+    const [isMounted, setIsMounted] = useState(false);
     const timerRef = useRef<ReturnType<typeof setTimeout>>();
     const { theme } = useTheme();
+
+    useEffect(() => {
+        if (isOpen) {
+            setIsMounted(true);
+        }
+    }, [isOpen]);
 
     const closeHandler = useCallback(() => {
         if (onClose) {
@@ -39,8 +46,6 @@ export const Modal = (props:ModalProps) => {
         }
     }, [onClose]);
 
-    const [isMounted, setIsMounted] = useState(false);
-
     const onKeyDown = useCallback((e: KeyboardEvent) => {
         if (e.key === 'Escape') {
             closeHandler();
@@ -50,16 +55,6 @@ export const Modal = (props:ModalProps) => {
     const onContentClick = (e: React.MouseEvent) => {
         e.stopPropagation();
     };
-
-    useEffect(() => {
-        if (isOpen) {
-            setIsMounted(true);
-        }
-
-        return () => {
-            setIsMounted(false);
-        };
-    }, [isOpen]);
 
     useEffect(() => {
         if (isOpen) {
