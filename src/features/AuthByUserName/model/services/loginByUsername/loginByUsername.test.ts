@@ -1,7 +1,6 @@
 import axios from 'axios';
-import { StateSchema } from 'shared/config/storeConfig/StateSchema';
-import { Dispatch } from '@reduxjs/toolkit';
 import { userActions } from 'entities/User';
+import { TestAsynkThunk } from 'shared/lib/tests/TestAsynkThunk/TestAsynkThunk';
 import { loginByUsername } from './loginByUsername';
 
 jest.mock('axios');
@@ -9,23 +8,15 @@ jest.mock('axios');
 const mockedAxios = jest.mocked(axios, { shallow: false });
 
 describe('loginByUsername', () => {
-    let dispatch: Dispatch;
-    let getState: () => StateSchema;
-
-    beforeEach(() => {
-        dispatch = jest.fn();
-        getState = jest.fn();
-    });
-
     test('succes login', async () => {
         const userValue = { username: '123', id: '1' };
         mockedAxios.post.mockReturnValue(Promise.resolve({ data: userValue }));
 
-        const action = loginByUsername({ username: '123', password: '123' });
-        const result = await action(dispatch, getState, undefined);
+        const thunk = new TestAsynkThunk(loginByUsername);
+        const result = await thunk.callThunk({ username: '123', password: '123' });
 
-        expect(dispatch).toHaveBeenCalledWith(userActions.setAuthData(userValue));
-        expect(dispatch).toHaveBeenCalledTimes(3);
+        expect(thunk.dispatch).toHaveBeenCalledWith(userActions.setAuthData(userValue));
+        expect(thunk.dispatch).toHaveBeenCalledTimes(3);
         expect(mockedAxios.post).toHaveBeenCalled();
         expect(result.meta.requestStatus).toEqual('fulfilled');
         expect(result.payload).toEqual(userValue);
@@ -33,10 +24,10 @@ describe('loginByUsername', () => {
 
     test('error login', async () => {
         mockedAxios.post.mockReturnValue(Promise.resolve({ status: 403 }));
-        const action = loginByUsername({ username: '123', password: '123' });
-        const result = await action(dispatch, getState, undefined);
+        const thunk = new TestAsynkThunk(loginByUsername);
+        const result = await thunk.callThunk({ username: '123', password: '123' });
 
-        expect(dispatch).toHaveBeenCalledTimes(2);
+        expect(thunk.dispatch).toHaveBeenCalledTimes(2);
         expect(mockedAxios.post).toHaveBeenCalled();
         expect(result.meta.requestStatus).toEqual('rejected');
         expect(result.payload).toEqual('Error');
