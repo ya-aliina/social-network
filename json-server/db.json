@@ -25,5 +25,14 @@
       "password": "123"
     }
   ],
-  "profile": { "name": "typicode" }
+  "profile": {
+    "firstname": "Алина",
+    "lastname": "Маковей",
+    "age": 25,
+    "currency": "UA",
+    "country": "Ukraine",
+    "city": "Kramatorsk",
+    "username": "admin",
+    "avatar": "https://media.tenor.com/dimT0JAAMb4AAAAM/cat-cute.gif"
+  }
 }
