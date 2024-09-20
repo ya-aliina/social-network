@@ -7,17 +7,17 @@ export interface buildPaths {
     src: string
 }
 
+export interface buildEnv {
+    mode: buildMode,
+    port: number,
+    isEslintFlat: boolean,
+    apiUrl: string,
+}
+
 export interface buildOptions {
     mode: buildMode,
     paths: buildPaths,
     port: number,
     isDev: boolean;
     apiUrl: string;
-}
-
-export interface buildEnv {
-    mode: buildMode,
-    port: number,
-    isEslintFlat: boolean,
-    apiUrl: string,
 }
