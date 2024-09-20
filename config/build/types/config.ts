@@ -12,10 +12,12 @@ export interface buildOptions {
     paths: buildPaths,
     port: number,
     isDev: boolean;
+    apiUrl: string;
 }
 
 export interface buildEnv {
     mode: buildMode,
     port: number,
     isEslintFlat: boolean,
+    apiUrl: string,
 }

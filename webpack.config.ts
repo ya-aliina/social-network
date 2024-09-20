@@ -7,6 +7,7 @@ export default (env: buildEnv) => {
     const mode: buildMode = env.mode || 'development';
     const port: number = env.port || 3000;
     const isDev: boolean = mode === 'development';
+    const apiUrl = env.apiUrl || 'http://localhost:8000';
 
     const paths:buildPaths = {
         entry: path.resolve(__dirname, 'src', 'index.tsx'),
@@ -20,6 +21,7 @@ export default (env: buildEnv) => {
         paths,
         port,
         isDev,
+        apiUrl,
     });
     return config;
 };
