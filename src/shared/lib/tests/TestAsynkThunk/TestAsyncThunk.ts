@@ -7,7 +7,7 @@ type ActionCreatorType<Returned, Arg, RejectedValue> =
 
 const mockedAxios = jest.mocked(axios, { shallow: false });
 
-export class TestAsynkThunk<Returned, Arg, RejectedValue> {
+export class TestAsyncThunk<Returned, Arg, RejectedValue> {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     dispatch: jest.MockedFn<any>;
 

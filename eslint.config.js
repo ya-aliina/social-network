@@ -56,7 +56,8 @@ const config = [
             'react-hooks/rules-of-hooks': 'error', // Checks rules of Hooks
             'react-hooks/exhaustive-deps': 'error', // Checks effect dependencies
             'no-param-reassign': 'off',
-            '@typescript-eslint/ban-ts-comment': 'off',
+            'typescript-eslint/ban-ts-comment': 'off',
+            'no-undef': 'off',
         },
     },
     {
