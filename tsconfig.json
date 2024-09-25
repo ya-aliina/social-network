@@ -10,7 +10,7 @@
 		"paths": {
 			"*": ["./src/*"]
 		},
-    "strict": false,
+    "strict": true,
     "moduleResolution": "node",
 		"allowSyntheticDefaultImports": true,
 		"esModuleInterop": true
