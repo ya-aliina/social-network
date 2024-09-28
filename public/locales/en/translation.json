@@ -15,6 +15,6 @@
   "Форма авторизации": "Authorization form",
   "Неверный логин или пароль": "Incorrect login or password",
   "Выйти": "Logout",
-  "Укажите валюту": "Укажите валюту",
-  "Укажите страну": "Укажите страну"
+  "Укажите валюту": "Specify the currency",
+  "Укажите страну": "Specify the country"
 }

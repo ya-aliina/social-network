@@ -7,8 +7,13 @@
   "Попробуйте обновить страницу": "Try refreshing the page",
   "Отменить": "Cancel",
   "Сохранить": "Save",
-  "Ваш возраст": "Ваш возраст",
-  "Город": "Город",
+  "Ваш возраст": "Your age",
+  "Город": "City",
   "Введите имя пользователя": "Enter your user name",
-  "Введите ссылку на аватар": "Enter avatar link"
+  "Введите ссылку на аватар": "Enter avatar link",
+  "Серверная ошибка при сохранении": "Server error during saving",
+  "Данные не указаны": "Data not provided",
+  "Имя и фамилии обязательны": "First and last name are required",
+  "Некорректный возраст": "Invalid age",
+  "Некорректный регион": "Invalid region"
 }
