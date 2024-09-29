@@ -1,5 +1,5 @@
 import { StateSchema } from 'shared/config/storeConfig/StateSchema';
-import { AsyncThunkAction } from '@reduxjs/toolkit';
+import { AsyncThunkAction, DeepPartial } from '@reduxjs/toolkit';
 import axios, { AxiosStatic } from 'axios';
 
 type ActionCreatorType<Returned, Arg, RejectedValue> =
@@ -20,10 +20,13 @@ export class TestAsyncThunk<Returned, Arg, RejectedValue> {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     navigate: jest.MockedFn<any>;
 
-    constructor(actionCreator: ActionCreatorType<Returned, Arg, RejectedValue>) {
+    constructor(
+        actionCreator: ActionCreatorType<Returned, Arg, RejectedValue>,
+        state?: DeepPartial<StateSchema>,
+    ) {
         this.actionCreator = actionCreator;
         this.dispatch = jest.fn();
-        this.getState = jest.fn();
+        this.getState = jest.fn(() => state as StateSchema);
 
         this.api = mockedAxios;
         this.navigate = jest.fn();
