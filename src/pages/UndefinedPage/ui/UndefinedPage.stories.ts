@@ -7,17 +7,19 @@ import UndefinedPage from './UndefinedPage';
 const meta: Meta<typeof UndefinedPage> = {
     title: 'pages/UndefinedPage',
     component: UndefinedPage,
-    argTypes: {},
 };
 
 export default meta;
 type Story = StoryObj<typeof UndefinedPage>;
 
-export const UndefinedPageLight: Story = {
-    args: {},
+export const Light: Story = {
+    decorators: [ThemeDecorator(Theme.LIGHT)],
 };
 
-export const UndefinedPageDark: Story = {
-    args: {},
+export const Dark: Story = {
     decorators: [ThemeDecorator(Theme.DARK)],
+};
+
+export const Lilac: Story = {
+    decorators: [ThemeDecorator(Theme.LILAC)],
 };

@@ -6,23 +6,23 @@ import { Input } from './Input';
 const meta: Meta<typeof Input> = {
     title: 'shared/Input',
     component: Input,
-    argTypes: {},
+    args: {
+        placeholder: 'Type Text',
+        autofocus: true,
+    },
 };
 
 export default meta;
 type Story = StoryObj<typeof Input>;
 
-export const InputLight: Story = {
-    args: {
-        placeholder: 'Type Text',
-        autofocus: true,
-    },
+export const Light: Story = {
+    decorators: [ThemeDecorator(Theme.LIGHT)],
 };
 
-export const InputDark: Story = {
-    args: {
-        placeholder: 'Type Text',
-        autofocus: true,
-    },
+export const Dark: Story = {
     decorators: [ThemeDecorator(Theme.DARK)],
+};
+
+export const Lilac: Story = {
+    decorators: [ThemeDecorator(Theme.LILAC)],
 };

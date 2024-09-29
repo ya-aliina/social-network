@@ -30,12 +30,14 @@ const meta: Meta<typeof ProfilePage> = {
 export default meta;
 type Story = StoryObj<typeof ProfilePage>;
 
-export const ProfilePageLight: Story = {
-    args: { },
+export const Light: Story = {
+    decorators: [ThemeDecorator(Theme.LIGHT)],
 };
 
-export const ProfilePageDark: Story = {
-    args: { },
+export const Dark: Story = {
     decorators: [ThemeDecorator(Theme.DARK)],
+};
 
+export const Lilac: Story = {
+    decorators: [ThemeDecorator(Theme.LILAC)],
 };

@@ -20,30 +20,45 @@ const meta: Meta<typeof Navbar> = {
 export default meta;
 type Story = StoryObj<typeof Navbar>;
 
-export const NavbarLight: Story = {
-    args: { },
+export const Light: Story = {
+    decorators: [ThemeDecorator(Theme.LIGHT)],
 };
 
-export const NavbarDark: Story = {
-    args: { },
+export const Dark: Story = {
     decorators: [ThemeDecorator(Theme.DARK)],
 };
 
-export const AuthNavbar: Story = {
-    args: { },
+export const Lilac: Story = {
+    decorators: [ThemeDecorator(Theme.LILAC)],
+};
+
+export const AuthLight: Story = {
     decorators: [
         StoreDecorator({
             user: { authData: {} },
         }),
+        ThemeDecorator(Theme.LIGHT),
     ],
 };
 
-export const AuthNavbarDark: Story = {
+export const AuthDark: Story = {
     args: { },
     decorators: [
         ThemeDecorator(Theme.DARK),
         StoreDecorator({
             user: { authData: {} },
         }),
+        ThemeDecorator(Theme.LIGHT),
+    ],
+};
+
+export const AuthLilac: Story = {
+    args: { },
+    decorators: [
+        ThemeDecorator(Theme.DARK),
+        StoreDecorator({
+            user: { authData: {} },
+        }),
+        ThemeDecorator(Theme.LILAC),
     ],
 };

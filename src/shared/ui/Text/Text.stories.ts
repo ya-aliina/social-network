@@ -7,20 +7,20 @@ import { Text, TextAlign, TextTheme } from './Text';
 const meta: Meta<typeof Text> = {
     title: 'shared/Text',
     component: Text,
-    argTypes: {},
 };
 
 export default meta;
 type Story = StoryObj<typeof Text>;
 
-export const TextItems: Story = {
+export const AlignItemsLeft: Story = {
     args: {
         title: 'Title',
         text: 'Text: Lorem ipsum dolor sit amet, consectetur adipisicing elit.',
+        align: TextAlign.LEFT,
     },
 };
 
-export const TextItemsCenter: Story = {
+export const AlignItemsCenter: Story = {
     args: {
         title: 'Title',
         text: 'Text: Lorem ipsum dolor sit amet, consectetur adipisicing elit.',
@@ -28,7 +28,7 @@ export const TextItemsCenter: Story = {
     },
 };
 
-export const TextItemsRight: Story = {
+export const AlignItemsRight: Story = {
     args: {
         title: 'Title',
         text: 'Text: Lorem ipsum dolor sit amet, consectetur adipisicing elit.',
@@ -36,7 +36,15 @@ export const TextItemsRight: Story = {
     },
 };
 
-export const TextItemsDark: Story = {
+export const Light: Story = {
+    args: {
+        title: 'Title',
+        text: 'Text: Lorem ipsum dolor sit amet, consectetur adipisicing elit.',
+    },
+    decorators: [ThemeDecorator(Theme.LIGHT)],
+};
+
+export const Dark: Story = {
     args: {
         title: 'Title',
         text: 'Text: Lorem ipsum dolor sit amet, consectetur adipisicing elit.',
@@ -44,15 +52,24 @@ export const TextItemsDark: Story = {
     decorators: [ThemeDecorator(Theme.DARK)],
 };
 
-export const ErrorItems: Story = {
+export const Lilac: Story = {
+    args: {
+        title: 'Title',
+        text: 'Text: Lorem ipsum dolor sit amet, consectetur adipisicing elit.',
+    },
+    decorators: [ThemeDecorator(Theme.LILAC)],
+};
+
+export const ErrorLight: Story = {
     args: {
         title: 'Title',
         text: 'Text: Lorem ipsum dolor sit amet, consectetur adipisicing elit.',
         theme: TextTheme.ERROR,
     },
+    decorators: [ThemeDecorator(Theme.LIGHT)],
 };
 
-export const ErrorItemsDark: Story = {
+export const ErrorDark: Story = {
     args: {
         title: 'Title',
         text: 'Text: Lorem ipsum dolor sit amet, consectetur adipisicing elit.',
@@ -61,28 +78,53 @@ export const ErrorItemsDark: Story = {
     decorators: [ThemeDecorator(Theme.DARK)],
 };
 
-export const onlyTitle: Story = {
+export const ErrorLilac: Story = {
+    args: {
+        title: 'Title',
+        text: 'Text: Lorem ipsum dolor sit amet, consectetur adipisicing elit.',
+        theme: TextTheme.ERROR,
+    },
+    decorators: [ThemeDecorator(Theme.LILAC)],
+};
+
+export const TitleLight: Story = {
     args: {
         title: 'Title',
     },
+    decorators: [ThemeDecorator(Theme.LIGHT)],
 };
 
-export const onlyTitleDark: Story = {
+export const TitleDark: Story = {
     args: {
         title: 'Title',
     },
     decorators: [ThemeDecorator(Theme.DARK)],
 };
 
-export const onlyText: Story = {
+export const TitleLilac: Story = {
+    args: {
+        title: 'Title',
+    },
+    decorators: [ThemeDecorator(Theme.LILAC)],
+};
+
+export const TextLight: Story = {
     args: {
         text: 'Text: Lorem ipsum dolor sit amet, consectetur adipisicing elit.',
     },
+    decorators: [ThemeDecorator(Theme.LIGHT)],
 };
 
-export const onlyTextDark: Story = {
+export const TextDark: Story = {
     args: {
         text: 'Text: Lorem ipsum dolor sit amet, consectetur adipisicing elit.',
     },
     decorators: [ThemeDecorator(Theme.DARK)],
+};
+
+export const TextLilac: Story = {
+    args: {
+        text: 'Text: Lorem ipsum dolor sit amet, consectetur adipisicing elit.',
+    },
+    decorators: [ThemeDecorator(Theme.LILAC)],
 };

@@ -7,17 +7,19 @@ import { ThemeSwitcher } from './ThemeSwitcher';
 const meta: Meta<typeof ThemeSwitcher> = {
     title: 'widget/ThemeSwitcher',
     component: ThemeSwitcher,
-    argTypes: {},
 };
 
 export default meta;
 type Story = StoryObj<typeof ThemeSwitcher>;
 
-export const ThemeSwitcherLight: Story = {
-    args: {},
+export const Light: Story = {
+    decorators: [ThemeDecorator(Theme.LIGHT)],
 };
 
-export const ThemeSwitcherDark: Story = {
-    args: {},
+export const Dark: Story = {
     decorators: [ThemeDecorator(Theme.DARK)],
+};
+
+export const Lilac: Story = {
+    decorators: [ThemeDecorator(Theme.LILAC)],
 };

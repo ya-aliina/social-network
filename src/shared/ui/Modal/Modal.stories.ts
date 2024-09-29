@@ -7,25 +7,23 @@ import { Modal } from 'shared/ui/Modal/Modal';
 const meta: Meta<typeof Modal> = {
     title: 'shared/Modal',
     component: Modal,
-    argTypes: {
+    args: {
+        isOpen: true,
+        children: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus architecto aspernatur ex praesentium quibusdam, recusandae rerum similique vel voluptatibus voluptatum! Blanditiis dicta ducimus ex minus obcaecati quae quidem sed tempora?',
     },
 };
 
 export default meta;
 type Story = StoryObj<typeof Modal>;
 
-export const ModalLight: Story = {
-    args: {
-        isOpen: true,
-        children: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus architecto aspernatur ex praesentium quibusdam, recusandae rerum similique vel voluptatibus voluptatum! Blanditiis dicta ducimus ex minus obcaecati quae quidem sed tempora?',
-    },
+export const Light: Story = {
     decorators: [ThemeDecorator(Theme.LIGHT)],
 };
 
-export const ModalDark: Story = {
-    args: {
-        isOpen: true,
-        children: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus architecto aspernatur ex praesentium quibusdam, recusandae rerum similique vel voluptatibus voluptatum! Blanditiis dicta ducimus ex minus obcaecati quae quidem sed tempora?',
-    },
+export const Dark: Story = {
     decorators: [ThemeDecorator(Theme.DARK)],
+};
+
+export const Lilac: Story = {
+    decorators: [ThemeDecorator(Theme.LILAC)],
 };
