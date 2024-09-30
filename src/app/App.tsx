@@ -5,12 +5,15 @@ import { Navbar } from 'widgets/Navbar';
 import { Sidebar } from 'widgets/Sidebar';
 import { Suspense, useEffect, useState } from 'react';
 import { Modal } from 'shared/ui/Modal/Modal';
-import { userActions } from 'entities/User';
+import { getUserInited, userActions } from 'entities/User';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { useSelector } from 'react-redux';
 
 export function App() {
     const { theme } = useTheme();
     const dispatch = useAppDispatch();
+    const inited = useSelector(getUserInited);
+
     const [isOpen, setIsOpen] = useState(false);
 
     useEffect(() => {
@@ -29,7 +32,7 @@ export function App() {
                 </Modal>
                 <div className="page-content">
                     <Sidebar />
-                    <AppRouter />
+                    {inited && <AppRouter />}
                 </div>
             </Suspense>
         </div>
