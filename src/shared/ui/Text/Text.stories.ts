@@ -2,7 +2,9 @@ import type { Meta, StoryObj } from '@storybook/react';
 
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { Theme } from 'app/providers/ThemeProvider';
-import { Text, TextAlign, TextTheme } from './Text';
+import {
+    Text, TextAlign, TextSize, TextTheme,
+} from './Text';
 
 const meta: Meta<typeof Text> = {
     title: 'shared/Text',
@@ -127,4 +129,20 @@ export const TextLilac: Story = {
         text: 'Text: Lorem ipsum dolor sit amet, consectetur adipisicing elit.',
     },
     decorators: [ThemeDecorator(Theme.LILAC)],
+};
+
+export const SizeM: Story = {
+    args: {
+        title: 'Title',
+        text: 'Text: Lorem ipsum dolor sit amet, consectetur adipisicing elit.',
+        size: TextSize.M,
+    },
+};
+
+export const SizeL: Story = {
+    args: {
+        title: 'Title',
+        text: 'Text: Lorem ipsum dolor sit amet, consectetur adipisicing elit.',
+        size: TextSize.L,
+    },
 };

@@ -75,7 +75,7 @@ export const ProfileCard = (props:ProfileCardProps) => {
             {data?.avatar
                 && (
                     <div className={cls.avatarWrapper}>
-                        <Avatar src={data?.avatar} alt="avatar" />
+                        <Avatar src={data?.avatar} alt="avatar" size={200} />
                     </div>
                 )}
             <Input

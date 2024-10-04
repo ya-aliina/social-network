@@ -14,18 +14,22 @@ export const Avatar = (props:AvatarProps) => {
         className,
         src,
         alt,
-        size,
+        size = 150,
     } = props;
     const mods: Mods = {};
+
     const styles = useMemo<CSSProperties>(() => ({
         width: size,
         height: size,
-    }), [size]);
+        background: `url(${src})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+    }), [size, src]);
 
     return (
-        <img
-            src={src}
-            alt={alt}
+        <div
+            role="img"
+            aria-label={alt}
             style={styles}
             className={classNames(cls.Avatar, mods, [className])}
         />

@@ -4,7 +4,7 @@
 	"Главная": "Main",
 	"О нас": "About",
   "Профиль": "Profile",
-	"Cтатьи": "Articles",
+	"Статьи": "Articles",
   "Toggle": "Toggle",
   "Страница не найдена": "Page Not Found",
   "Обновить страницу": "Reload Page",
@@ -18,5 +18,8 @@
   "Неверный логин или пароль": "Incorrect login or password",
   "Выйти": "Logout",
   "Укажите валюту": "Specify the currency",
-  "Укажите страну": "Specify the country"
+  "Укажите страну": "Specify the country",
+  "ArticleImageBlockComponent": "ArticleImageBlockComponent",
+  "ArticleTextBlockComponent": "ArticleTextBlockComponent",
+  "Копировать": "Copy"
 }

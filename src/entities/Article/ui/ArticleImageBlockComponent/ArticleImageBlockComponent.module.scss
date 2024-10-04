@@ -1,4 +1,10 @@
 /* stylelint-disable-next-line block-no-empty */
 .ArticleImageBlockComponent {
-  /* This block is temporarily empty */
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.img {
+  max-width: 100%;
 }

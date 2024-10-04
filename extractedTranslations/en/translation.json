@@ -1,5 +1,8 @@
 {
   "": "",
+  "ArticleCodeBlockComponent": "",
+  "ArticleImageBlockComponent": "ArticleImageBlockComponent",
+  "ArticleTextBlockComponent": "ArticleTextBlockComponent",
   "PROFILE PAGE": "",
   "Toggle": "",
   "decrement": "decrement",
@@ -12,6 +15,7 @@
   "Главная": "",
   "Декремент": "",
   "Инкремент": "",
+  "Копировать": "Копировать",
   "Неверный логин или пароль": "Неверный логин или пароль",
   "О нас": "",
   "Обновить страницу": "",
