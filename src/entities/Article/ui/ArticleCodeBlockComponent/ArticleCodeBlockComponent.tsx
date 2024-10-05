@@ -11,8 +11,6 @@ interface ArticleCodeBlockComponent {
 
 export const ArticleCodeBlockComponent = memo(({ className, block }: ArticleCodeBlockComponent) => (
     <div className={classNames(cls.ArticleCodeBlockComponent, {}, [className])}>
-        <Code>
-            {block.code}
-        </Code>
+        <Code text={block.code} />
     </div>
 ));

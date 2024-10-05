@@ -7,7 +7,7 @@ const meta: Meta<typeof Code> = {
     title: 'shared/Code',
     component: Code,
     args: {
-        children: 'import type { Meta, StoryObj } from \'@storybook/react\';\n'
+        text: 'import type { Meta, StoryObj } from \'@storybook/react\';\n'
             + 'import { Code } from \'./Code\';\n'
             + '\n'
             + 'const meta: Meta<typeof Code> = {\n'
