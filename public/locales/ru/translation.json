@@ -22,5 +22,7 @@
   "ArticleImageBlockComponent": "ArticleImageBlockComponent",
   "ArticleTextBlockComponent": "ArticleTextBlockComponent",
   "Копировать": "Копировать",
-  "Комментарии отсутствуют": "Комментарии отсутствуют"
+  "Комментарии отсутствуют": "Комментарии отсутствуют",
+  "Введите текст комментария": "Введите текст комментария",
+  "Отправить": "Отправить"
 }

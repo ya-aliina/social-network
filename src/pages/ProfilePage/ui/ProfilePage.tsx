@@ -20,6 +20,7 @@ import { Country } from 'entities/Country';
 import { Text, TextTheme } from 'shared/ui/Text/Text';
 import { useTranslation } from 'react-i18next';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
+import { useParams } from 'react-router-dom';
 import { ProfilePageHeader } from './ProfilePageHeader/ProfilePageHeader';
 
 const reducers: ReducersList = {
@@ -47,8 +48,12 @@ const ProfilePage = ({ className }:ProfilePageProps) => {
         [ValidateProfileError.INCORRECT_COUNTRY]: t('Некорректный регион'),
     };
 
+    const { id } = useParams<{id: string}>();
+
     useInitialEffect(() => {
-        dispatch(fetchProfileData());
+        if (id) {
+            dispatch(fetchProfileData(id));
+        }
     });
 
     const onChangeFirstname = useCallback((value?: string) => {

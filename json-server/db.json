@@ -120,14 +120,29 @@
       "avatar": "https://miro.medium.com/v2/resize:fit:1080/0*A7MUqyCLvZDcHkfM.jpg"
     }
   ],
-  "profile": {
-    "firstname": "Alina",
-    "lastname": "Makovii",
-    "age": 25,
-    "currency": "UAH",
-    "country": "France",
-    "city": "Kramatorsk",
-    "username": "admin",
-    "avatar": "https://miro.medium.com/v2/resize:fit:1080/0*A7MUqyCLvZDcHkfM.jpg"
-  }
+  "profile": [
+    {
+      "id": "1",
+      "firstname": "Alina",
+      "lastname": "Makovii",
+      "age": 25,
+      "currency": "UAH",
+      "country": "France",
+      "city": "Kramatorsk",
+      "username": "admin",
+      "avatar": "https://miro.medium.com/v2/resize:fit:1080/0*A7MUqyCLvZDcHkfM.jpg"
+    },
+    {
+      "id": "2",
+      "firstname": "Alina",
+      "lastname": "Makovii",
+      "age": 25,
+      "currency": "UAH",
+      "country": "Ukraine",
+      "city": "Kramatorsk",
+      "username": "admin",
+      "avatar": "https://i.natgeofe.com/k/ad9b542e-c4a0-4d0b-9147-da17121b4c98/MOmeow1_square.png"
+    }
+  ]
 }
+
