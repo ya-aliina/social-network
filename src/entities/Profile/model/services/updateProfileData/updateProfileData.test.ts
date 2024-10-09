@@ -7,6 +7,7 @@ import { updateProfileData } from './updateProfileData';
 jest.mock('axios');
 
 const data = {
+    id: '13',
     username: 'admin',
     firstname: 'Alina',
     lastname: 'Makovii',

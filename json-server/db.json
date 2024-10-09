@@ -102,6 +102,30 @@
       "text": "some comment 3",
       "articleId": "1",
       "userId": "1"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "тестовый комментарий 1",
+      "id": "ZNi8hwG"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "тестовый комментарий 2",
+      "id": "737Uhvd"
+    },
+    {
+      "articleId": "1",
+      "userId": "2",
+      "text": "Комментарий от user",
+      "id": "LsHqjwB"
+    },
+    {
+      "articleId": "1",
+      "userId": "2",
+      "text": "hello world!",
+      "id": "bxD83SK"
     }
   ],
   "users": [
@@ -117,7 +141,7 @@
       "username": "user",
       "password": "123",
       "role": "USER",
-      "avatar": "https://miro.medium.com/v2/resize:fit:1080/0*A7MUqyCLvZDcHkfM.jpg"
+      "avatar": "https://i.natgeofe.com/k/ad9b542e-c4a0-4d0b-9147-da17121b4c98/MOmeow1_square.png"
     }
   ],
   "profile": [
@@ -140,9 +164,8 @@
       "currency": "UAH",
       "country": "Ukraine",
       "city": "Kramatorsk",
-      "username": "admin",
+      "username": "user",
       "avatar": "https://i.natgeofe.com/k/ad9b542e-c4a0-4d0b-9147-da17121b4c98/MOmeow1_square.png"
     }
   ]
 }
-

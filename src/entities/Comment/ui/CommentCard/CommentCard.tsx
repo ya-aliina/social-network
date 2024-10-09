@@ -11,16 +11,19 @@ import cls from './CommentCard.module.scss';
 
 interface CommentCardProps {
     className?: string;
-    comment: Comment;
+    comment?: Comment;
+    key?: string;
     isLoading?: boolean;
 }
 
-export const CommentCard = memo(({ className, comment, isLoading }:CommentCardProps) => {
+export const CommentCard = memo(({
+    className, comment, isLoading, key,
+}:CommentCardProps) => {
     // const { t } = useTranslation();
 
     if (isLoading) {
         return (
-            <div className={classNames(cls.CommentCard, {}, [className])}>
+            <div key={key} className={classNames(cls.CommentCard, {}, [className, cls.loading])}>
                 <div className={cls.header}>
                     <Skeleton height={30} width={30} border="50%" />
                     <Skeleton height={15} width={90} className={cls.username} />
@@ -30,15 +33,19 @@ export const CommentCard = memo(({ className, comment, isLoading }:CommentCardPr
         );
     }
 
+    if (!comment) {
+        return null;
+    }
+
     return (
         <div className={classNames(cls.CommentCard, {}, [className])}>
-            <AppLink className={cls.header} to={`${RoutePath.profile}/${comment.user.id}`}>
-                {comment.user.avatar
-                    ? <Avatar size={30} src={comment.user.avatar} alt="avatar" />
+            <AppLink className={cls.header} to={`${RoutePath.profile}/${comment?.user.id}`}>
+                {comment?.user.avatar
+                    ? <Avatar size={30} src={comment?.user.avatar} alt="avatar" />
                     : null}
-                <Text className={cls.username} text={comment.user.username} />
+                <Text className={cls.username} text={comment?.user.username} />
             </AppLink>
-            <Text className={cls.text} text={comment.text} />
+            <Text className={cls.text} text={comment?.text} />
         </div>
     );
 });

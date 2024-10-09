@@ -1,4 +1,10 @@
 export {
+    getArticleDetailsData,
+    getArticleDetailsIsLoading,
+    getArticleDetailsError,
+} from './model/selectors/getArticleDetailsData/getArticleDetailsData';
+
+export {
     ArticleDetails,
 } from './ui/ArticleDetails/ArticleDetails';
 
