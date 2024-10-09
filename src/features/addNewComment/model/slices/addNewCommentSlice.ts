@@ -13,8 +13,7 @@ export const addNewCommentSlice = createSlice({
             state.text = action.payload;
         },
     },
-    extraReducers: () => {
-    },
+    extraReducers: () => {},
 });
 
 export const { actions: addNewCommentActions } = addNewCommentSlice;

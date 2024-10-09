@@ -1,4 +1,5 @@
 import { LoginSchema } from 'features/AuthByUserName';
+import { loginByUsername } from 'features/AuthByUserName/model/services/loginByUsername/loginByUsername';
 import { loginActions, loginReducer } from './loginSlice';
 
 describe('test loginSlice', () => {
@@ -18,5 +19,51 @@ describe('test loginSlice', () => {
             state as LoginSchema,
             loginActions.setPassword('123'),
         )).toEqual({ password: '123' });
+    });
+
+    test('should handle loginByUsername.pending', () => {
+        const initialState: DeepPartial<LoginSchema> = {
+            isLoading: false,
+            error: 'some error',
+        };
+
+        expect(loginReducer(
+            initialState as LoginSchema,
+            loginByUsername.pending,
+        )).toEqual({
+            isLoading: true,
+            error: undefined,
+        });
+    });
+
+    test('should handle loginByUsername.fulfilled', () => {
+        const initialState: DeepPartial<LoginSchema> = {
+            isLoading: true,
+        };
+
+        expect(loginReducer(
+            initialState as LoginSchema,
+            loginByUsername.fulfilled,
+        )).toEqual({
+            isLoading: false,
+        });
+    });
+
+    test('should handle loginByUsername.rejected', () => {
+        const initialState: DeepPartial<LoginSchema> = {
+            isLoading: true,
+            error: undefined,
+        };
+
+        expect(loginReducer(
+            initialState as LoginSchema,
+            {
+                type: loginByUsername.rejected.type,
+                payload: 'Some error',
+            },
+        )).toEqual({
+            isLoading: false,
+            error: 'Some error',
+        });
     });
 });
