@@ -40,7 +40,7 @@ const config = [
             'react/react-in-jsx-scope': 'off',
             'react/jsx-filename-extension': ['warn', { extensions: ['.js', '.jsx', '.tsx'] }],
             'react/function-component-definition': 'off',
-            'react/jsx-props-no-spreading': 'warn',
+            'react/jsx-props-no-spreading': 'off',
             'no-shadow': 'off',
             'no-underscore-dangle': 'off',
             'max-len': ['warn', { code: 120, ignoreComments: true }],
