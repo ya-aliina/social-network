@@ -21,11 +21,11 @@ export const ArticleList = memo((props:ArticleListProps) => {
     } = props;
 
     const renderArticle = (article: Article) => (
-        <ArticleListItem article={article} view={view} />
+        <ArticleListItem className={cls.card} article={article} view={view} />
     );
 
     return (
-        <div className={classNames(cls.ArticleList, {}, [className])}>
+        <div className={classNames(cls.ArticleList, {}, [className, cls[view]])}>
             {// @ts-expect-error length
                 articles?.length > 0
                     ? articles?.map(renderArticle)

@@ -18,6 +18,12 @@ const article: Article = {
     img: 'https://www.datocms-assets.com/48401/1628644950-javascript.png?auto=format&fit=max&w=1200',
     views: 814,
     createdAt: '02.10.2024',
+    user: {
+        id: '1',
+        username: 'alina',
+        // eslint-disable-next-line max-len
+        avatar: 'https://cdn.petmojo.com/wp-content/uploads/2024/06/61f92a134bc9590156613c681abaac7d8bf854ab-1038x900-1.jpg',
+    },
     type: [
         ArticleType.IT,
     ],

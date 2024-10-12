@@ -2,19 +2,25 @@ import { classNames, Mods } from 'shared/lib/classNames/classNames';
 // import { useTranslation } from 'react-i18next';
 import { memo } from 'react';
 import { ArticleList } from 'entities/Article/ui/ArticleList/ArticleList';
-import { Article } from 'entities/Article';
+import { Article, ArticleView } from 'entities/Article';
 import cls from './ArticlesPage.module.scss';
 
 interface ArticlesPage {
     className?: string;
 }
 
-const arcticle = {
+const article = {
     id: '1',
     title: 'JavaScript news',
     subtitle: 'Руководство по JavaScript, часть 1: первая программа, особенности языка, стандарты',
     img: 'https://www.datocms-assets.com/48401/1628644950-javascript.png?auto=format&fit=max&w=1200',
     views: 814,
+    user: {
+        id: '1',
+        username: 'alina',
+        // eslint-disable-next-line max-len
+        avatar: 'https://cdn.petmojo.com/wp-content/uploads/2024/06/61f92a134bc9590156613c681abaac7d8bf854ab-1038x900-1.jpg',
+    },
     createdAt: '02.10.2024',
     type: [
         'IT',
@@ -97,7 +103,17 @@ const ArticlesPage = ({ className }: ArticlesPage) => {
     return (
         // eslint-disable-next-line i18next/no-literal-string
         <div className={classNames(cls.ArticlesPage, mods, [className])}>
-            <ArticleList articles={[arcticle]} />
+            <ArticleList
+                view={ArticleView.LIST}
+                articles={
+                    new Array(16)
+                        .fill(0)
+                        .map((item, index) => ({
+                            ...article,
+                            id: String(index),
+                        }))
+                }
+            />
         </div>
     );
 };

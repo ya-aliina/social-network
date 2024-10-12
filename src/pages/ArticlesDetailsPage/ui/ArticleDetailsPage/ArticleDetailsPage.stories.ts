@@ -18,6 +18,10 @@ const article: Article = {
     img: 'https://www.datocms-assets.com/48401/1628644950-javascript.png?auto=format&fit=max&w=1200',
     views: 814,
     createdAt: '02.10.2024',
+    user: {
+        id: '1',
+        username: 'alina',
+    },
     type: [
         ArticleType.IT,
     ],

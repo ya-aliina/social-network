@@ -1,2 +1,15 @@
-/* stylelint-disable-next-line block-no-empty */
-.ArticleList {}
+.TILE {
+  display: flex;
+  flex-wrap: wrap;
+
+  .card {
+    margin-bottom: 30px;
+  }
+}
+
+.LIST {
+  .card {
+    margin-right: 30px;
+    margin-bottom: 30px;
+  }
+}

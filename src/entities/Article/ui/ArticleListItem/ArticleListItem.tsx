@@ -4,6 +4,7 @@ import { Text } from 'shared/ui/Text/Text';
 import { Icon } from 'shared/ui/Icon/Icon';
 import EyeIcon from 'shared/assets/icons/eye.svg';
 import { Card } from 'shared/ui/Card/Card';
+import { Avatar } from 'shared/ui/Avatar/Avatar';
 import cls from './ArticleListItem.module.scss';
 import { Article, ArticleView } from '../../model/types/article';
 
@@ -22,7 +23,14 @@ export const ArticleListItem = memo((props:ArticleListItemProps) => {
     if (view === ArticleView.LIST) {
         return (
             <div className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}>
-                {article.title}
+                <Card className={cls.card}>
+                    <div className={cls.header}>
+                        <Avatar size={30} src={article.user.avatar} />
+                        <Text text={article.user.username} className={cls.username} />
+                        <Text text={article.createdAt} className={cls.date} />
+                    </div>
+                    <Text title={article.title} className={cls.title} />
+                </Card>
             </div>
         );
     }
