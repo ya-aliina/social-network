@@ -104,7 +104,8 @@ const ArticlesPage = ({ className }: ArticlesPage) => {
         // eslint-disable-next-line i18next/no-literal-string
         <div className={classNames(cls.ArticlesPage, mods, [className])}>
             <ArticleList
-                view={ArticleView.LIST}
+                view={ArticleView.TILE}
+                isLoading
                 articles={
                     new Array(16)
                         .fill(0)
