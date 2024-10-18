@@ -4,12 +4,10 @@ import { ArticleBlockType, ArticleType } from 'entities/Article/model/types/arti
 import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { Theme } from 'app/providers/ThemeProvider';
-import Avatar from 'shared/assets/tests/square-avatar.jpg';
-import Cover from 'shared/assets/tests/rectangular-avatar.jpg';
 import ArticleDetailsPage from './ArticleDetailsPage';
 
 const meta: Meta<typeof ArticleDetailsPage> = {
-    title: 'pages/ArticleDetailsPage',
+    title: 'shared/ArticleDetailsPage',
     component: ArticleDetailsPage,
 };
 
@@ -17,13 +15,12 @@ const article: Article = {
     id: '1',
     title: 'JavaScript news',
     subtitle: 'Руководство по JavaScript, часть 1: первая программа, особенности языка, стандарты',
-    img: Cover,
+    img: 'https://www.datocms-assets.com/48401/1628644950-javascript.png?auto=format&fit=max&w=1200',
     views: 814,
     createdAt: '02.10.2024',
     user: {
         id: '1',
         username: 'alina',
-        avatar: Avatar,
     },
     type: [
         ArticleType.IT,

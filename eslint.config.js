@@ -59,7 +59,6 @@ const config = [
             'no-param-reassign': 'off',
             'typescript-eslint/ban-ts-comment': 'off',
             'no-undef': 'off',
-            'react/no-array-index-key': 'off',
         },
     },
     {
