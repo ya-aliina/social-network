@@ -105,6 +105,7 @@ const ArticlesPage = ({ className }: ArticlesPage) => {
         <div className={classNames(cls.ArticlesPage, mods, [className])}>
             <ArticleList
                 view={ArticleView.LIST}
+                isLoading
                 articles={
                     new Array(16)
                         .fill(0)
