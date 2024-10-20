@@ -11,7 +11,8 @@ import { To } from 'react-router-dom';
 import { NavigateOptions } from 'react-router';
 import { ArticleDetailsSchema } from 'entities/Article';
 import { ArticleDetailsCommentSchema } from 'pages/ArticlesDetailsPage';
-import { addNewCommentSchema } from 'features/addNewComment';
+import { AddNewCommentSchema } from 'features/addNewComment';
+import { ArticlesPageSchema } from 'pages/ArticlesPage';
 
 export interface StateSchema {
     counter: CounterSchema;
@@ -22,7 +23,8 @@ export interface StateSchema {
     profile?: ProfileSchema
     articleDetails?: ArticleDetailsSchema
     articleDetailsComment?: ArticleDetailsCommentSchema
-    addNewComment?: addNewCommentSchema
+    addNewComment?: AddNewCommentSchema
+    articlesPage?: ArticlesPageSchema
 }
 
 export type StateSchemaKey = keyof StateSchema;
