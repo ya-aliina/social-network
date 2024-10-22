@@ -1,5 +1,6 @@
 import { TestAsyncThunk } from 'shared/lib/tests/TestAsynkThunk/TestAsyncThunk';
 import { ArticleView } from 'entities/Article';
+import { ArticlesPageSchema } from 'pages/ArticlesPage';
 import { fetchArticlesList } from '../fetchArticlesList/fetchArticlesList';
 import { fetchNextArticlesPage } from './fetchNextArticlesPage';
 
@@ -8,7 +9,7 @@ jest.mock('../fetchArticlesList/fetchArticlesList');
 describe('fetchNextArticlesPage', () => {
     test('success', async () => {
         const thunk = new TestAsyncThunk(fetchNextArticlesPage, {
-            articlesPage: {
+            articlesPage: <DeepPartial<ArticlesPageSchema>> {
                 page: 2,
                 ids: [],
                 entities: {},
@@ -16,7 +17,7 @@ describe('fetchNextArticlesPage', () => {
                 view: ArticleView.TILE,
                 isLoading: false,
                 hasMore: true,
-            },
+            } as ArticlesPageSchema,
         });
         await thunk.callThunk();
 
@@ -26,7 +27,7 @@ describe('fetchNextArticlesPage', () => {
 
     test('fetchArticleList not called', async () => {
         const thunk = new TestAsyncThunk(fetchNextArticlesPage, {
-            articlesPage: {
+            articlesPage: <DeepPartial<ArticlesPageSchema>> {
                 page: 2,
                 ids: [],
                 entities: {},
@@ -34,7 +35,7 @@ describe('fetchNextArticlesPage', () => {
                 view: ArticleView.TILE,
                 isLoading: false,
                 hasMore: false,
-            },
+            } as ArticlesPageSchema,
         });
         await thunk.callThunk();
 
@@ -44,7 +45,7 @@ describe('fetchNextArticlesPage', () => {
 
     test('fetchArticleList isLoading', async () => {
         const thunk = new TestAsyncThunk(fetchNextArticlesPage, {
-            articlesPage: {
+            articlesPage: <DeepPartial<ArticlesPageSchema>>{
                 page: 2,
                 ids: [],
                 entities: {},
@@ -52,7 +53,7 @@ describe('fetchNextArticlesPage', () => {
                 view: ArticleView.TILE,
                 isLoading: true,
                 hasMore: false,
-            },
+            } as ArticlesPageSchema,
         });
         await thunk.callThunk();
 
