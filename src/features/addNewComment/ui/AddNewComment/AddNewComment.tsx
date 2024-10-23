@@ -18,7 +18,6 @@ export interface AddNewCommentProps {
 const AddNewComment = memo(({ className, onSendComment }:AddNewCommentProps) => {
     const { t } = useTranslation();
     const text = useSelector(addNewCommentText);
-    // const error = useSelector(addNewCommentError);
     const dispatch = useAppDispatch();
     const reducers: ReducersList = {
         addNewComment: addNewCommentReducer,

@@ -12,18 +12,17 @@ import cls from './CommentCard.module.scss';
 interface CommentCardProps {
     className?: string;
     comment?: Comment;
-    key?: string;
     isLoading?: boolean;
 }
 
 export const CommentCard = memo(({
-    className, comment, isLoading, key,
+    className, comment, isLoading,
 }:CommentCardProps) => {
     // const { t } = useTranslation();
 
     if (isLoading) {
         return (
-            <div key={key} className={classNames(cls.CommentCard, {}, [className, cls.loading])}>
+            <div className={classNames(cls.CommentCard, {}, [className, cls.loading])}>
                 <div className={cls.header}>
                     <Skeleton height={30} width={30} border="50%" />
                     <Skeleton height={15} width={90} className={cls.username} />
