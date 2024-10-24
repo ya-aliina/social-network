@@ -3,8 +3,10 @@ import { ArticleView } from 'entities/Article';
 import { ArticlesPageSchema } from 'pages/ArticlesPage';
 import { fetchArticlesList } from '../fetchArticlesList/fetchArticlesList';
 import { fetchNextArticlesPage } from './fetchNextArticlesPage';
+import { articlesPageActions } from '../../slices/articlesPageSlice';
 
 jest.mock('../fetchArticlesList/fetchArticlesList');
+jest.mock('../../slices/articlesPageSlice');
 
 describe('fetchNextArticlesPage', () => {
     test('success', async () => {
@@ -22,7 +24,7 @@ describe('fetchNextArticlesPage', () => {
         await thunk.callThunk();
 
         expect(thunk.dispatch).toBeCalledTimes(4); // action, fullfield, 2 dispatch внутри самого action
-        expect(fetchArticlesList).toBeCalledWith({ page: 3 });
+        expect(thunk.dispatch).toHaveBeenCalledWith(articlesPageActions.setPage(3));
     });
 
     test('fetchArticleList not called', async () => {

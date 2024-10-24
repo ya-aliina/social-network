@@ -1,15 +1,12 @@
 .TILE {
   display: flex;
   flex-wrap: wrap;
+  gap: 30px
 
-  .card {
-    margin-bottom: 30px;
-  }
 }
 
 .LIST {
   .card {
-    margin-right: 30px;
     margin-bottom: 30px;
   }
 }
