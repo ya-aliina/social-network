@@ -1,5 +1,5 @@
 import { StateSchema } from 'shared/config/storeConfig/StateSchema';
-import { ArticlesSortField, ArticleView } from 'entities/Article';
+import { ArticlesSortField, ArticleType, ArticleView } from 'entities/Article';
 
 export const getArticlesPageIsLoading = (state: StateSchema) => state.articlesPage?.isLoading || false;
 export const getArticlesPageError = (state: StateSchema) => state.articlesPage?.error;
@@ -14,5 +14,6 @@ export const getArticlesPageView = (state: StateSchema) => state.articlesPage?.v
 export const getArticlesPageOrder = (state: StateSchema) => state.articlesPage?.order ?? 'asc';
 export const getArticlesPageSort = (state: StateSchema) => state.articlesPage?.sort ?? ArticlesSortField.CREATED;
 export const getArticlesPageSearch = (state: StateSchema) => state.articlesPage?.search ?? '';
+export const getArticlesPageType = (state: StateSchema) => state.articlesPage?.type ?? ArticleType.ALL;
 
 export const getArticlesPageInited = (state: StateSchema) => state.articlesPage?._inited;
