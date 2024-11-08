@@ -1,8 +1,9 @@
-/* stylelint-disable-next-line block-no-empty */
-.ArticleDetailsPage {
-  /* This block is temporarily empty */
-}
-
 .commentTitle {
   margin-top: 20px;
+}
+
+.recommendations {
+  margin-top: 20px;
+  flex-wrap: nowrap;
+  overflow: auto hidden;
 }

@@ -1,5 +1,7 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import { memo } from 'react';
+import { Text, TextSize } from 'shared/ui/Text/Text';
+import { useTranslation } from 'react-i18next';
 import { ArticleListItemSkeleton } from '../ArticleListItem/ArticleListItemSkeleton';
 import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
 import { Article, ArticleView } from '../../model/types/article';
@@ -10,6 +12,7 @@ interface ArticleListProps {
     articles?: Article[];
     isLoading?: boolean;
     view?: ArticleView;
+    isNewTab?: boolean;
 }
 
 const getSkeletons = (view: ArticleView) => new Array(view === ArticleView.TILE ? 9 : 2)
@@ -23,11 +26,22 @@ export const ArticleList = memo((props:ArticleListProps) => {
         articles,
         view = ArticleView.TILE,
         isLoading,
+        isNewTab,
     } = props;
 
+    const { t } = useTranslation();
+
     const renderArticle = (article: Article) => (
-        <ArticleListItem className={cls.card} article={article} key={article.id} view={view} />
+        <ArticleListItem isNewTab={isNewTab} className={cls.card} article={article} key={article.id} view={view} />
     );
+
+    if (!isLoading && !articles?.length) {
+        return (
+            <div className={classNames(cls.ArticleList, {}, [className, cls[view]])}>
+                <Text className={TextSize.L} text={t('Статьи не найдены')} />
+            </div>
+        );
+    }
 
     return (
         <div className={classNames(cls.ArticleList, {}, [className, cls[view]])}>

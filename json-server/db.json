@@ -823,6 +823,12 @@
       "userId": "2",
       "text": "hello world!",
       "id": "bxD83SK"
+    },
+    {
+      "articleId": "16",
+      "userId": "2",
+      "text": "тестовый комментарий:)",
+      "id": "Ew6lgBb"
     }
   ],
   "users": [

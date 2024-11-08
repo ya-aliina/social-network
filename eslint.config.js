@@ -43,7 +43,7 @@ const config = [
             'react/jsx-props-no-spreading': 'off',
             'no-shadow': 'off',
             'no-underscore-dangle': 'off',
-            'max-len': ['warn', { code: 120, ignoreComments: true }],
+            'max-len': ['warn', { code: 125, ignoreComments: true }],
             '@typescript-eslint/no-unused-vars': 'warn',
             'jsx-a11y/click-events-have-key-events': 'off',
             'jsx-a11y/no-static-element-interactions': 'off',
@@ -60,6 +60,7 @@ const config = [
             'typescript-eslint/ban-ts-comment': 'off',
             'no-undef': 'off',
             'react/no-array-index-key': 'off',
+            'arrow-body-style': 'off',
         },
     },
     {

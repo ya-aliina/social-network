@@ -1,10 +1,10 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import { memo, useCallback } from 'react';
-import { ArticleDetails } from 'entities/Article';
+import { ArticleDetails, ArticleList } from 'entities/Article';
 import { useNavigate, useParams } from 'react-router-dom';
 import { CommentList } from 'entities/Comment';
-import { Text } from 'shared/ui/Text/Text';
+import { Text, TextSize } from 'shared/ui/Text/Text';
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/DynamicModuleLoader/DynamicModuleLoader';
 import { useSelector } from 'react-redux';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
@@ -13,24 +13,24 @@ import { AddNewComment } from 'features/addNewComment';
 import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import { Page } from 'widgets/Page/Page';
+import { articleDetailsPageReducer } from '../../model/slices/articleDetailsPageReducer';
 import {
-    addCommentForArticle,
-} from '../../model/services/addCommentForArticle/addCommentForArticle';
-import {
-    fetchCommentsByArticleId,
-} from '../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
-import { articleDetailsCommentsReducer, getArticleComments } from '../../model/slices/articleDetailsCommentsSlice';
+    fetchArticlesRecommendations,
+} from '../../model/services/fetchArticleReccomendations/fetchArticleReccomendations';
+import { addCommentForArticle } from '../../model/services/addCommentForArticle/addCommentForArticle';
+import { fetchCommentsByArticleId } from '../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
+import { getArticleComments } from '../../model/slices/articleDetailsCommentsSlice';
 import cls from './ArticleDetailsPage.module.scss';
-import {
-    getArticleCommentsIsLoading,
-} from '../../model/selectors/comments';
+import { getArticleCommentsIsLoading } from '../../model/selectors/comments';
+import { getArticleRecommendations } from '../../model/slices/articleDetailsRecommendationsSlice';
+import { getArticleRecommendationsIsLoading } from '../../model/selectors/recommendations';
 
 interface ArticleDetailsPage {
     className?: string;
 }
 
 const reducers: ReducersList = {
-    articleDetailsComment: articleDetailsCommentsReducer,
+    articleDetailsPage: articleDetailsPageReducer,
 };
 
 const ArticleDetailsPage = ({ className }: ArticleDetailsPage) => {
@@ -39,7 +39,9 @@ const ArticleDetailsPage = ({ className }: ArticleDetailsPage) => {
     const navigate = useNavigate();
     const dispatch = useAppDispatch();
     const comments = useSelector(getArticleComments.selectAll);
+    const recommendations = useSelector(getArticleRecommendations.selectAll);
     const commentsIsLoading = useSelector(getArticleCommentsIsLoading);
+    const recommendationsIsLoading = useSelector(getArticleRecommendationsIsLoading);
 
     const onBackToList = useCallback(() => {
         navigate(RoutePath.articles);
@@ -51,6 +53,7 @@ const ArticleDetailsPage = ({ className }: ArticleDetailsPage) => {
 
     useInitialEffect(() => {
         dispatch(fetchCommentsByArticleId(id));
+        dispatch(fetchArticlesRecommendations());
     });
 
     if (!id) {
@@ -68,7 +71,22 @@ const ArticleDetailsPage = ({ className }: ArticleDetailsPage) => {
                     {t('Назад к списку')}
                 </Button>
                 <ArticleDetails id={id} />
-                <Text className={cls.commentTitle} title={t('Комментарии')} />
+                <Text
+                    size={TextSize.L}
+                    className={cls.commentTitle}
+                    title={t('Рекомендуем')}
+                />
+                <ArticleList
+                    articles={recommendations}
+                    isLoading={recommendationsIsLoading}
+                    isNewTab
+                    className={cls.recommendations}
+                />
+                <Text
+                    size={TextSize.L}
+                    className={cls.commentTitle}
+                    title={t('Комментарии')}
+                />
                 <AddNewComment onSendComment={onSendComment} />
                 <CommentList
                     isLoading={commentsIsLoading}

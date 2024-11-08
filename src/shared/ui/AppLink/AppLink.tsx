@@ -9,7 +9,8 @@ export enum AppLinkTheme {
 }
 interface AppLinkProps extends LinkProps{
     className?: string;
-    theme?: AppLinkTheme
+    theme?: AppLinkTheme;
+    isNewTab?: boolean;
 }
 
 export const AppLink = memo((props: AppLinkProps) => {
@@ -18,12 +19,14 @@ export const AppLink = memo((props: AppLinkProps) => {
         className,
         children,
         theme = AppLinkTheme.PRIMARY,
+        isNewTab = false,
         ...otherProps
     } = props;
 
     return (
         <Link
             to={to}
+            target={isNewTab ? '_blank' : '_self'}
             className={classNames(cls.AppLink, {}, [className, cls[theme]])}
             /* eslint-disable-next-line react/jsx-props-no-spreading */
             {...otherProps}

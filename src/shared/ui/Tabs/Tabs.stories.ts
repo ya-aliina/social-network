@@ -1,11 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { ArticleType } from 'entities/Article';
-import { Tab } from './Tab';
+import { Tabs } from './Tabs';
 
-const meta: Meta<typeof Tab> = {
+const meta: Meta<typeof Tabs> = {
     title: 'shared/Tab',
-    component: Tab,
+    component: Tabs,
     args: {
         tabs: [
             {
@@ -27,7 +27,7 @@ const meta: Meta<typeof Tab> = {
 };
 
 export default meta;
-type Story = StoryObj<typeof Tab>;
+type Story = StoryObj<typeof Tabs>;
 
 export const Primary: Story = {
     args: {},

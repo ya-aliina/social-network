@@ -2,7 +2,7 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import { memo, ReactNode } from 'react';
 import { Card, CardTheme } from 'shared/ui/Card/Card';
 import { ArticleType } from 'entities/Article';
-import cls from './Tab.module.scss';
+import cls from './Tabs.module.scss';
 
 export interface TabItem<T extends string> {
     value: T,
@@ -16,7 +16,7 @@ interface TabProps<T extends string> {
     onTabClick: (value: T) => void
 }
 
-export const Tab = memo((props:TabProps<ArticleType>) => {
+export const Tabs = memo((props:TabProps<ArticleType>) => {
     const {
         className,
         tabs,
