@@ -1,8 +1,17 @@
 .TILE {
   display: flex;
   flex-wrap: wrap;
-  gap: 30px
+  gap: 30px;
 
+  .card {
+    height: 300px;
+  }
+
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+  }
 }
 
 .LIST {

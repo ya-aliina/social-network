@@ -34,69 +34,70 @@ export const ArticleList = memo((props:ArticleListProps) => {
 
     const isList = view === ArticleView.LIST;
 
-    const itemsPerRow = isList ? 1 : 4;
-    // const rowCount = isList ? articles.length : Math.ceil(articles.length / itemsPerRow);
-
-    const rowRender = ({
-        index, key, style,
-    }: ListRowProps) => {
-        const items = [];
-        const fromIndex = index * itemsPerRow;
-        const toIndex = Math.min(index + itemsPerRow, articles.length);
-
-        for (let i = fromIndex; i < toIndex; i += 1) {
-            items.push(
-                <ArticleListItem
-                    isNewTab={isNewTab}
-                    className={cls.card}
-                    article={articles[i]}
-                    view={view}
-                    key={articles[i].id}
-                />,
-            );
-        }
-
-        return (
-            <div key={key} style={style}>
-                {items}
-            </div>
-        );
-    };
-
-    if (!isLoading && !articles.length) {
-        return (
-            <div className={classNames(cls.ArticleList, {}, [className, cls[view]])}>
-                <Text className={TextSize.L} text={t('Статьи не найдены')} />
-            </div>
-        );
-    }
-
     return (
         <WindowScroller scrollElement={document.getElementById(PAGE_ID) as Element}>
-
             {({
                 width, height, registerChild, onChildScroll, isScrolling, scrollTop,
-            }) => (
-                <div
-                    // @ts-expect-error 'd'
-                    ref={registerChild}
-                    className={classNames(cls.ArticleList, {}, [className, cls[view]])}
-                >
-                    <List
-                        height={height ?? 700}
-                        rowCount={articles.length}
-                        rowHeight={isList ? 700 : 330}
-                        rowRenderer={rowRender}
-                        width={width ? width - 80 : 700}
-                        autoHeight
-                        onScroll={onChildScroll}
-                        isScrolling={isScrolling}
-                        scrollTop={scrollTop}
-                    />
-                    {isLoading && getSkeletons(view)}
-                </div>
-            )}
+            }) => {
+                const cardWidth = 220;
+                const itemsPerRow = isList ? 1 : Math.max(1, Math.floor((width ?? 0) / cardWidth));
+                const rowCount = Math.ceil(articles.length / itemsPerRow);
 
+                const rowRender = ({
+                    index, key, style,
+                }: ListRowProps) => {
+                    const items = [];
+                    const fromIndex = index * itemsPerRow;
+                    const toIndex = Math.min(fromIndex + itemsPerRow, articles.length);
+
+                    for (let i = fromIndex; i < toIndex; i += 1) {
+                        items.push(
+                            <ArticleListItem
+                                isNewTab={isNewTab}
+                                className={cls.card}
+                                article={articles[i]}
+                                view={view}
+                                key={articles[i].id}
+                            />,
+                        );
+                    }
+
+                    return (
+                        <div key={key} style={style} className={cls.row}>
+                            {items}
+                        </div>
+                    );
+                };
+
+                if (!isLoading && !articles.length) {
+                    return (
+                        <div className={classNames(cls.ArticleList, {}, [className, cls[view]])}>
+                            <Text className={TextSize.L} text={t('Статьи не найдены')} />
+                        </div>
+                    );
+                }
+
+                return (
+                    <div
+                        // @ts-expect-error: registerChild expects a LegacyRef type, but is used here for a DOM element
+                        ref={registerChild}
+                        className={classNames(cls.ArticleList, {}, [className, cls[view]])}
+                    >
+                        <List
+                            height={height ?? 700}
+                            rowCount={rowCount}
+                            rowHeight={isList ? 700 : 330}
+                            rowRenderer={rowRender}
+                            width={width ? width - 80 : 700}
+                            autoHeight
+                            onScroll={onChildScroll}
+                            isScrolling={isScrolling}
+                            scrollTop={scrollTop}
+                        />
+                        {isLoading && getSkeletons(view)}
+                    </div>
+                );
+            }}
         </WindowScroller>
     );
 });
