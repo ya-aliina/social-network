@@ -10,6 +10,7 @@ const meta: Meta<typeof ArticleDetailsPage> = {
     title: 'pages/ArticleDetailsPage',
     component: ArticleDetailsPage,
 };
+export default meta;
 
 const article: Article = {
     id: '1',
@@ -87,7 +88,6 @@ const article: Article = {
     ],
 };
 
-export default meta;
 type Story = StoryObj<typeof ArticleDetailsPage>;
 
 export const Light: Story = {
