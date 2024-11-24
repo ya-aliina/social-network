@@ -9,6 +9,7 @@ import { Currency } from 'entities/Currency/model/types/currency';
 import { CurrencySelect } from 'entities/Currency';
 import { Country } from 'entities/Country/model/types/country';
 import { CountrySelect } from 'entities/Country';
+import { HStack, VStack } from 'shared/ui/Stack';
 import cls from './ProfileCard.module.scss';
 
 interface ProfileCardProps {
@@ -51,32 +52,32 @@ export const ProfileCard = (props:ProfileCardProps) => {
 
     if (isLoading) {
         return (
-            <div className={classNames(cls.ProfileCard, {}, [className, cls.loading])}>
+            <HStack justify="center" max className={classNames(cls.ProfileCard, {}, [className, cls.loading])}>
                 <Loader />
-            </div>
+            </HStack>
         );
     }
 
     if (error) {
         return (
-            <div className={classNames(cls.ProfileCard, { }, [className, cls.error])}>
+            <HStack justify="center" max className={classNames(cls.ProfileCard, { }, [className, cls.error])}>
                 <Text
                     theme={TextTheme.ERROR}
                     title={t('Произошла ошибка при загрузке профиля')}
                     text={t('Попробуйте обновить страницу')}
                     align={TextAlign.CENTER}
                 />
-            </div>
+            </HStack>
         );
     }
 
     return (
-        <div className={classNames(cls.ProfileCard, mods, [className])}>
+        <VStack gap="8" max className={classNames(cls.ProfileCard, mods, [className])}>
             {data?.avatar
                 && (
-                    <div className={cls.avatarWrapper}>
+                    <HStack justify="center" max className={cls.avatarWrapper}>
                         <Avatar src={data?.avatar} alt="avatar" size={200} />
-                    </div>
+                    </HStack>
                 )}
             <Input
                 value={data?.firstname}
@@ -140,6 +141,6 @@ export const ProfileCard = (props:ProfileCardProps) => {
                 onChange={onChangeCountry}
                 readonly={readonly}
             />
-        </div>
+        </VStack>
     );
 };
