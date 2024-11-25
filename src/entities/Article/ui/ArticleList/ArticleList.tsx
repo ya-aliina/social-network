@@ -1,5 +1,5 @@
 import { classNames } from 'shared/lib/classNames/classNames';
-import { memo } from 'react';
+import { memo, useEffect, useState } from 'react';
 import { Text, TextSize } from 'shared/ui/Text/Text';
 import { useTranslation } from 'react-i18next';
 import { List, ListRowProps, WindowScroller } from 'react-virtualized';
@@ -31,11 +31,25 @@ export const ArticleList = memo((props:ArticleListProps) => {
         isNewTab,
     } = props;
     const { t } = useTranslation();
+    const [scrollElement, setScrollElement] = useState<Element | null>(null);
+
+    useEffect(() => {
+        const element = document.getElementById(PAGE_ID);
+        setScrollElement(element);
+    }, []);
 
     const isList = view === ArticleView.LIST;
 
+    if (!scrollElement || isLoading) {
+        return (
+            <div className={classNames(cls.ArticleList, {}, [className, cls[view]])}>
+                {getSkeletons(view)}
+            </div>
+        );
+    }
+
     return (
-        <WindowScroller scrollElement={document.getElementById(PAGE_ID) as Element}>
+        <WindowScroller scrollElement={scrollElement}>
             {({
                 width, height, registerChild, onChildScroll, isScrolling, scrollTop,
             }) => {

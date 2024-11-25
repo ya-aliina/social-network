@@ -91,9 +91,6 @@ const article: Article = {
 type Story = StoryObj<typeof ArticleDetailsPage>;
 
 export const Light: Story = {
-    args: {
-
-    },
     decorators: [
         StoreDecorator({
             articleDetails: {

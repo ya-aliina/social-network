@@ -6,6 +6,7 @@ import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 import { useSelector } from 'react-redux';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/DynamicModuleLoader/DynamicModuleLoader';
+import { HStack } from 'shared/ui/Stack';
 import { addNewCommentActions, addNewCommentReducer } from '../../model/slices/addNewCommentSlice';
 import { addNewCommentText } from '../../model/selectors/addNewCommentSelectors';
 import cls from './AddNewComment.module.scss';
@@ -34,7 +35,7 @@ const AddNewComment = memo(({ className, onSendComment }:AddNewCommentProps) => 
 
     return (
         <DynamicModuleLoader reducers={reducers}>
-            <div className={classNames(cls.AddNewComment, {}, [className])}>
+            <HStack justify="between" max className={classNames(cls.AddNewComment, {}, [className])}>
                 <Input
                     className={cls.input}
                     value={text}
@@ -47,7 +48,7 @@ const AddNewComment = memo(({ className, onSendComment }:AddNewCommentProps) => 
                 >
                     {t('Отправить')}
                 </Button>
-            </div>
+            </HStack>
         </DynamicModuleLoader>
     );
 });
