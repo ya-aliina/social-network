@@ -1,9 +1,9 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { Article, ArticleView } from 'entities/Article';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { Theme } from 'app/providers/ThemeProvider';
 import Image from 'shared/assets/tests/rectangular-avatar.jpg';
 import Avatar from 'shared/assets/tests/square-avatar.jpg';
+import { Article, ArticleView } from '../../model/types/article';
 import { ArticleListItem } from './ArticleListItem';
 
 const article = {

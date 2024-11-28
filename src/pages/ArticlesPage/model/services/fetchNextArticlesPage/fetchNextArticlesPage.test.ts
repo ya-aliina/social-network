@@ -1,6 +1,6 @@
 import { TestAsyncThunk } from 'shared/lib/tests/TestAsynkThunk/TestAsyncThunk';
 import { ArticleView } from 'entities/Article';
-import { ArticlesPageSchema } from 'pages/ArticlesPage';
+import { ArticlesPageSchema } from '../../types/articlesPageSchema';
 import { fetchArticlesList } from '../fetchArticlesList/fetchArticlesList';
 import { fetchNextArticlesPage } from './fetchNextArticlesPage';
 import { articlesPageActions } from '../../slices/articlesPageSlice';

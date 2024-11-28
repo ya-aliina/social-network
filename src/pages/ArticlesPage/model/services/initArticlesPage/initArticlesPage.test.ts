@@ -1,6 +1,6 @@
 import { TestAsyncThunk } from 'shared/lib/tests/TestAsynkThunk/TestAsyncThunk';
-import { ArticlesPageSchema } from 'pages/ArticlesPage';
 import { ArticlesSortField } from 'entities/Article';
+import { ArticlesPageSchema } from '../../types/articlesPageSchema';
 import { initArticlesPage } from './initArticlesPage';
 import { articlesPageActions } from '../../slices/articlesPageSlice';
 

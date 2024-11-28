@@ -1,10 +1,10 @@
 import { configureStore, Reducer, ReducersMapObject } from '@reduxjs/toolkit';
-import { StateSchema, ThunkExtraArg } from 'shared/config/storeConfig/StateSchema';
 import { counterReducer } from 'entities/Counter';
 import { userReducer } from 'entities/User';
 import { $api } from 'shared/api/api';
 import { CombinedState } from 'redux';
 import { uiReducer } from 'features/UI';
+import { StateSchema, ThunkExtraArg } from './StateSchema';
 import { createReducerManager } from './reducerManager';
 
 export function createReduxStore(

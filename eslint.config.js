@@ -4,6 +4,7 @@ const pluginJs = require('@eslint/js');
 const tseslint = require('typescript-eslint');
 const { rules } = require('@eslint/js/src/configs/eslint-all');
 const reactHooks = require('eslint-plugin-react-hooks');
+const makoviiPlugin = require('eslint-plugin-makovii-plugin');
 
 const compat = new FlatCompat({
     baseDirectory: __dirname,
@@ -25,6 +26,7 @@ const config = [
         },
         plugins: {
             'react-hooks': reactHooks,
+            'makovii-plugin': makoviiPlugin,
         },
         rules: {
             'linebreak-style': 'off',
@@ -61,6 +63,7 @@ const config = [
             'no-undef': 'off',
             'react/no-array-index-key': 'off',
             'arrow-body-style': 'off',
+            'makovii-plugin/path-checker': 'error',
         },
     },
     {
