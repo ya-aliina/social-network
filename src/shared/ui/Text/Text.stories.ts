@@ -131,6 +131,14 @@ export const TextLilac: Story = {
     decorators: [ThemeDecorator(Theme.LILAC)],
 };
 
+export const SizeS: Story = {
+    args: {
+        title: 'Title',
+        text: 'Text: Lorem ipsum dolor sit amet, consectetur adipisicing elit.',
+        size: TextSize.S,
+    },
+};
+
 export const SizeM: Story = {
     args: {
         title: 'Title',
